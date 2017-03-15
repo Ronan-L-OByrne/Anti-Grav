@@ -16,12 +16,6 @@ public class CameraMovement : MonoBehaviour
 	// Update is called once per frame
 	void LateUpdate ()
     {
-        //if (offset.x > 1 || offset.y > 1)
-        {
-            
-            {
-                transform.position = new Vector3((player.transform.position.x + offset.x), 0, -10);
-            }//end else
-        }//end if
+        transform.position = new Vector3((player.transform.position.x + offset.x), 0, -10);
     }//end Update()
 }//end class CameraMovement
