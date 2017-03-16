@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
         spriteFlip = false;
         curAngle = 0;
         time = 0;
-}//end Start()
+    }//end Start()
 
     //When the Player collides with an object
     private void OnCollisionStay2D(Collision2D collision)
@@ -74,8 +74,19 @@ public class PlayerMovement : MonoBehaviour
             }//end if
             else
             {
-                playerBody.velocity = new Vector2(playerBody.velocity.x, playerBody.velocity.y - moveSpeed/2);
+                playerBody.velocity = new Vector2(playerBody.velocity.x, playerBody.velocity.y - moveSpeed/4);
             }//end else
+
+            if (playerBody.velocity.x > 0.5f)
+            {
+                // flip the sprite
+                mySprite.flipX = true;
+            }//end if
+            else if (playerBody.velocity.x < -0.5f)
+            {
+                // flip the sprite
+                mySprite.flipX = false;
+            }//end else if
         }//end if
         else if (expectedAngle == 90)
         {
@@ -85,29 +96,9 @@ public class PlayerMovement : MonoBehaviour
             }//end if
             else
             {
-                playerBody.velocity = new Vector2(playerBody.velocity.x + moveSpeed/2, playerBody.velocity.y);
+                playerBody.velocity = new Vector2(playerBody.velocity.x + moveSpeed / 4, playerBody.velocity.y);
             }//end else
-        }//end if
 
-        if(playerBody.velocity.x > 0)
-        {
-            transform.eulerAngles = new Vector3(0, 0, curAngle);
-        }//end if
-        else
-        {
-            transform.eulerAngles = new Vector3(0, 0, curAngle);
-        }//end else
-        
-            if (playerBody.velocity.x > 0.5f)
-            {
-                // flip the sprite
-                mySprite.flipX = true;
-            }//end if
-            else if (playerBody.velocity.x < 0.5f)
-            {
-                // flip the sprite
-                mySprite.flipX = false;
-            }//end else if
             if (playerBody.velocity.y > 0.5f)
             {
                 // flip the sprite
@@ -118,56 +109,56 @@ public class PlayerMovement : MonoBehaviour
                 // flip the sprite
                 mySprite.flipX = false;
             }//end else if
+        }//end if
+        
+        transform.eulerAngles = new Vector3(0, 0, curAngle);
     }//end Update()
 
     void checkKeys()
     {
-        if(Input.GetKeyDown(KeyCode.W) && canJump)
+        if (expectedAngle == 0)
         {
-            if (expectedAngle == 0)
+            if (Input.GetKeyDown(KeyCode.W) && canJump)
             {
                 playerBody.velocity = new Vector2(playerBody.velocity.x, jumpHeight);
             }//end if
-            else
-            {
-                playerBody.velocity = new Vector2(-jumpHeight, playerBody.velocity.y);
-            }//end else
-        }//end if
 
-        if (Input.GetKey(KeyCode.A) && playerBody.velocity.x > -5)
-        {
-            if (expectedAngle == 0)
+            if (Input.GetKey(KeyCode.A) && playerBody.velocity.x > -5)
             {
                 playerBody.velocity = new Vector2(playerBody.velocity.x - moveSpeed, playerBody.velocity.y);
             }//end if
-            else
+
+            if (Input.GetKey(KeyCode.D) && playerBody.velocity.x < 5)
+            {
+                 playerBody.velocity = new Vector2(playerBody.velocity.x + moveSpeed, playerBody.velocity.y);
+            }//end if
+
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                 expectedAngle = 90;
+            }//end if
+        }//end if
+        else if(expectedAngle == 90)
+        {
+            if (Input.GetKeyDown(KeyCode.W) && canJump)
+            {
+                playerBody.velocity = new Vector2(-jumpHeight, playerBody.velocity.y);
+            }//end if
+
+            if (Input.GetKey(KeyCode.A) && playerBody.velocity.x > -5)
             {
                 playerBody.velocity = new Vector2(playerBody.velocity.x, playerBody.velocity.y - moveSpeed);
-            }//end else
-        }//end if
-
-        if (Input.GetKey(KeyCode.D) && playerBody.velocity.x < 5)
-        {
-            if (expectedAngle == 0)
-            {
-                playerBody.velocity = new Vector2(playerBody.velocity.x + moveSpeed, playerBody.velocity.y);
             }//end if
-            else
+
+            if (Input.GetKey(KeyCode.D) && playerBody.velocity.x < 5)
             {
                 playerBody.velocity = new Vector2(playerBody.velocity.x, playerBody.velocity.y + moveSpeed);
-            }//end else
-        }//end if
+            }//end if
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if (expectedAngle == 0)
+            if (Input.GetKeyDown(KeyCode.Space))
             {
-                expectedAngle = 90;
+                 expectedAngle = 0;
             }//end if
-            else if (expectedAngle == 90)
-            {
-                expectedAngle = 0;
-            }//end if
-        }//end if
+        }//end else if
     }//end checkKeys()
 }//end class PlayerMovement
