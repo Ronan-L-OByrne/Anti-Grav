@@ -31,5 +31,14 @@ public class CameraMovement : MonoBehaviour
         {
             transform.position = new Vector3(playerMov.playerBody.position.x - maxOffset, transform.position.y, -10);
         }//end else if
+
+        if (offset.y > maxOffset + .01f)
+        {
+            transform.position = new Vector3(transform.position.x, playerMov.playerBody.position.y + maxOffset, -10);
+        }//end if
+        else if (offset.y < -maxOffset - .01f)
+        {
+            transform.position = new Vector3(transform.position.x, playerMov.playerBody.position.y - maxOffset, -10);
+        }//end else if
     }//end Update()
 }//end class CameraMovement
