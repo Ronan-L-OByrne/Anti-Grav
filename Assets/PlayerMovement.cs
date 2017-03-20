@@ -64,7 +64,7 @@ public class PlayerMovement : MonoBehaviour
             time = 0;
         }//end else
 
-        checkKeys();
+        CheckKeys();
 
         if (expectedAngle == 0)
         {
@@ -114,7 +114,7 @@ public class PlayerMovement : MonoBehaviour
         transform.eulerAngles = new Vector3(0, 0, curAngle);
     }//end Update()
 
-    void checkKeys()
+    void CheckKeys()
     {
         if (expectedAngle == 0)
         {

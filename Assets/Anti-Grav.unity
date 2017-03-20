@@ -193,8 +193,8 @@ MonoBehaviour:
   playerMov: {fileID: 2144811507}
   offset: {x: 0, y: 0, z: 0}
   temp: {x: 0, y: 0, z: 0}
+  maxOffset: 0
   time: 0
-  timeY: 0
 --- !u!1 &134131762
 GameObject:
   m_ObjectHideFlags: 0
@@ -320,8 +320,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 249258614}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5, y: -5, z: -1}
-  m_LocalScale: {x: 10, y: 1, z: 1}
+  m_LocalPosition: {x: 16.04, y: -5, z: -1}
+  m_LocalScale: {x: 32.08002, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1854848695}
   m_RootOrder: 7
@@ -804,8 +804,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1272704917}
   - component: {fileID: 1272704921}
-  - component: {fileID: 1272704920}
   - component: {fileID: 1272704919}
+  - component: {fileID: 1272704920}
   - component: {fileID: 1272704922}
   - component: {fileID: 1272704918}
   m_Layer: 0
@@ -850,9 +850,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0.45}
+  m_Offset: {x: 0, y: 0.335}
   serializedVersion: 2
-  m_Size: {x: 0.1, y: 0.1}
+  m_Size: {x: 0.3, y: 0.32}
 --- !u!61 &1272704920
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -864,9 +864,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.08}
   serializedVersion: 2
-  m_Size: {x: 0.52, y: 0.175}
+  m_Size: {x: 0.5, y: 0.5}
 --- !u!212 &1272704921
 SpriteRenderer:
   m_ObjectHideFlags: 0
