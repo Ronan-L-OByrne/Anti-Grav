@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     //Variables
     public float moveSpeed;
-    public float jumpHeight;
+    public Vector2 jumpHeight;
     public bool canJump, jumping;
     public bool spriteFlip;
     public Rigidbody2D playerBody;
@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
     void Start ()
     {
         moveSpeed  = 0.2f;
-        jumpHeight = 5.0f;
+        jumpHeight = new Vector2(0, 7.5f);
         canJump = false;
         jumping = true;
         playerBody = GetComponent<Rigidbody2D>();
@@ -68,7 +68,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (expectedAngle == 0)
         {
-            if (jumping)
+            if (jumping && playerBody.velocity.y > -10.0f)
             {
                 playerBody.velocity = new Vector2(playerBody.velocity.x, playerBody.velocity.y - moveSpeed);
             }//end if
@@ -90,7 +90,7 @@ public class PlayerMovement : MonoBehaviour
         }//end if
         else if (expectedAngle == 90)
         {
-            if (jumping)
+            if (jumping && playerBody.velocity.x < 10.0f)
             {
                 playerBody.velocity = new Vector2(playerBody.velocity.x + moveSpeed, playerBody.velocity.y);
             }//end if
@@ -120,7 +120,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.W) && canJump)
             {
-                playerBody.velocity = new Vector2(playerBody.velocity.x, jumpHeight);
+                playerBody.velocity += jumpHeight;
             }//end if
 
             if (Input.GetKey(KeyCode.A) && playerBody.velocity.x > -5)
@@ -135,29 +135,31 @@ public class PlayerMovement : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                 expectedAngle = 90;
+                expectedAngle = 90;
+                jumpHeight = new Vector2(-jumpHeight.y, jumpHeight.x);
             }//end if
         }//end if
         else if(expectedAngle == 90)
         {
-            if (Input.GetKeyDown(KeyCode.W) && canJump)
+            if (Input.GetKeyDown(KeyCode.A) && canJump)
             {
-                playerBody.velocity = new Vector2(-jumpHeight, playerBody.velocity.y);
+                playerBody.velocity += jumpHeight;
             }//end if
 
-            if (Input.GetKey(KeyCode.A) && playerBody.velocity.x > -5)
+            if (Input.GetKey(KeyCode.S) && playerBody.velocity.y > -5)
             {
                 playerBody.velocity = new Vector2(playerBody.velocity.x, playerBody.velocity.y - moveSpeed);
             }//end if
 
-            if (Input.GetKey(KeyCode.D) && playerBody.velocity.x < 5)
+            if (Input.GetKey(KeyCode.W) && playerBody.velocity.y < 5)
             {
                 playerBody.velocity = new Vector2(playerBody.velocity.x, playerBody.velocity.y + moveSpeed);
             }//end if
 
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                 expectedAngle = 0;
+                expectedAngle = 0;
+                jumpHeight = new Vector2(jumpHeight.y, -jumpHeight.x);
             }//end if
         }//end else if
     }//end checkKeys()
