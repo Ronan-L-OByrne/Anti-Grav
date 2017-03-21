@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     //Variables
-    public float moveSpeed;
+    public float moveSpeed, maxSpeed;
     public Vector2 jumpHeight;
     public bool canJump, jumping;
     public bool spriteFlip;
@@ -19,8 +19,9 @@ public class PlayerMovement : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
-        moveSpeed  = 0.2f;
-        jumpHeight = new Vector2(0, 7.5f);
+        moveSpeed = 0.2f;
+        maxSpeed = moveSpeed*100;
+        jumpHeight = new Vector2(0, 18.75f);
         canJump = false;
         jumping = true;
         playerBody = GetComponent<Rigidbody2D>();
@@ -58,7 +59,7 @@ public class PlayerMovement : MonoBehaviour
         {
             curAngle = Mathf.Lerp(90, 0, time);
             time += 4.0f * Time.deltaTime;
-        }//end if
+        }//end else if
         else
         {
             time = 0;
@@ -68,45 +69,41 @@ public class PlayerMovement : MonoBehaviour
 
         if (expectedAngle == 0)
         {
-            if (jumping && playerBody.velocity.y > -10.0f)
+            if (jumping && playerBody.velocity.y > -maxSpeed*3)
             {
                 playerBody.velocity = new Vector2(playerBody.velocity.x, playerBody.velocity.y - moveSpeed);
             }//end if
             else
             {
-                playerBody.velocity = new Vector2(playerBody.velocity.x, playerBody.velocity.y - moveSpeed/4);
+                playerBody.velocity = new Vector2(playerBody.velocity.x, playerBody.velocity.y - moveSpeed/2);
             }//end else
 
             if (playerBody.velocity.x > 0.5f)
             {
-                // flip the sprite
                 mySprite.flipX = true;
             }//end if
             else if (playerBody.velocity.x < -0.5f)
             {
-                // flip the sprite
                 mySprite.flipX = false;
             }//end else if
         }//end if
         else if (expectedAngle == 90)
         {
-            if (jumping && playerBody.velocity.x < 10.0f)
+            if (jumping && playerBody.velocity.x < maxSpeed*3)
             {
                 playerBody.velocity = new Vector2(playerBody.velocity.x + moveSpeed, playerBody.velocity.y);
             }//end if
             else
             {
-                playerBody.velocity = new Vector2(playerBody.velocity.x + moveSpeed / 4, playerBody.velocity.y);
+                playerBody.velocity = new Vector2(playerBody.velocity.x + moveSpeed / 2, playerBody.velocity.y);
             }//end else
 
             if (playerBody.velocity.y > 0.5f)
             {
-                // flip the sprite
                 mySprite.flipX = true;
             }//end if
             else if (playerBody.velocity.y < -0.5f)
             {
-                // flip the sprite
                 mySprite.flipX = false;
             }//end else if
         }//end if
@@ -123,12 +120,12 @@ public class PlayerMovement : MonoBehaviour
                 playerBody.velocity += jumpHeight;
             }//end if
 
-            if (Input.GetKey(KeyCode.A) && playerBody.velocity.x > -5)
+            if (Input.GetKey(KeyCode.A) && playerBody.velocity.x > -maxSpeed)
             {
                 playerBody.velocity = new Vector2(playerBody.velocity.x - moveSpeed, playerBody.velocity.y);
             }//end if
 
-            if (Input.GetKey(KeyCode.D) && playerBody.velocity.x < 5)
+            if (Input.GetKey(KeyCode.D) && playerBody.velocity.x < maxSpeed)
             {
                  playerBody.velocity = new Vector2(playerBody.velocity.x + moveSpeed, playerBody.velocity.y);
             }//end if
@@ -146,12 +143,12 @@ public class PlayerMovement : MonoBehaviour
                 playerBody.velocity += jumpHeight;
             }//end if
 
-            if (Input.GetKey(KeyCode.S) && playerBody.velocity.y > -5)
+            if (Input.GetKey(KeyCode.S) && playerBody.velocity.y > -maxSpeed)
             {
                 playerBody.velocity = new Vector2(playerBody.velocity.x, playerBody.velocity.y - moveSpeed);
             }//end if
 
-            if (Input.GetKey(KeyCode.W) && playerBody.velocity.y < 5)
+            if (Input.GetKey(KeyCode.W) && playerBody.velocity.y < maxSpeed)
             {
                 playerBody.velocity = new Vector2(playerBody.velocity.x, playerBody.velocity.y + moveSpeed);
             }//end if

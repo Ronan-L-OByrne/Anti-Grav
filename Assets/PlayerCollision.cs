@@ -17,14 +17,14 @@ public class PlayerCollision : MonoBehaviour
             {
                 if (collisionOther.contacts[i].point.x > myParent.playerBody.position.x + 0.248f && collisionOther.contacts[i].point.y < myParent.playerBody.position.y + 0.2f && collisionOther.contacts[i].point.y > myParent.playerBody.position.y - 0.2f)
                 {
-                    //Debug.Log("RIGHT");
-                    myParent.jumpHeight = new Vector2(-6.0f, 7.5f);
+                    //Debug.Log("RIGHT"); 0.5
+                    myParent.jumpHeight = new Vector2(-myParent.moveSpeed * 35, myParent.moveSpeed * 45);
                     break;
                 }//end if
                 else if (collisionOther.contacts[i].point.x < myParent.playerBody.position.x - 0.248f && collisionOther.contacts[i].point.y < myParent.playerBody.position.y + 0.2f && collisionOther.contacts[i].point.y > myParent.playerBody.position.y - 0.2f)
                 {
                     //Debug.Log("LEFT");
-                    myParent.jumpHeight = new Vector2(6.0f, 7.5f);
+                    myParent.jumpHeight = new Vector2(myParent.moveSpeed * 35, myParent.moveSpeed * 45);
                     break;
                 }//end else if
                 else if (collisionOther.contacts[i].point.y > myParent.playerBody.position.y + 0.335f)
@@ -35,7 +35,7 @@ public class PlayerCollision : MonoBehaviour
                 else if (collisionOther.contacts[i].point.y < myParent.playerBody.position.y - 0.4f)
                 {
                     //Debug.Log("BOTTOM");
-                    myParent.jumpHeight = new Vector2(0.0f, 7.5f);
+                    myParent.jumpHeight = new Vector2(0.0f, myParent.moveSpeed * 45);
                 }//end else if
             }//end if
             else
@@ -43,13 +43,13 @@ public class PlayerCollision : MonoBehaviour
                 if (collisionOther.contacts[i].point.y > myParent.playerBody.position.y + 0.248f && collisionOther.contacts[i].point.x < myParent.playerBody.position.x + 0.2f && collisionOther.contacts[i].point.x > myParent.playerBody.position.x - 0.2f)
                 {
                     //Debug.Log("RIGHT");
-                    myParent.jumpHeight = new Vector2(-7.5f, -6.0f);
+                    myParent.jumpHeight = new Vector2(-myParent.moveSpeed * 45, -myParent.moveSpeed * 35);
                     break;
                 }//end if
                 else if (collisionOther.contacts[i].point.y < myParent.playerBody.position.y - 0.248f && collisionOther.contacts[i].point.x < myParent.playerBody.position.x + 0.2f && collisionOther.contacts[i].point.x > myParent.playerBody.position.x - 0.2f)
                 {
                     //Debug.Log("LEFT");
-                    myParent.jumpHeight = new Vector2(-7.5f, 6.0f);
+                    myParent.jumpHeight = new Vector2(-myParent.moveSpeed * 45, myParent.moveSpeed * 35);
                     break;
                 }//end else if
                 else if (collisionOther.contacts[i].point.x < myParent.playerBody.position.x - 0.335f)
@@ -60,7 +60,7 @@ public class PlayerCollision : MonoBehaviour
                 else if (collisionOther.contacts[i].point.x > myParent.playerBody.position.x + 0.4f)
                 {
                     //Debug.Log("BOTTOM");
-                    myParent.jumpHeight = new Vector2(-7.5f, 0.0f);
+                    myParent.jumpHeight = new Vector2(-myParent.moveSpeed * 45, 0.0f);
                 }//end else if
             }//end else
         }//end for*/
