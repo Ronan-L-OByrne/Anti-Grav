@@ -7,8 +7,8 @@ public class PlayerCollision : MonoBehaviour
     void OnCollisionStay2D(Collision2D collisionOther)
     {
         PlayerMovement myParent = transform.parent.GetComponent<PlayerMovement>();
-        Collider2D collider = collisionOther.collider;
-        Vector3 center = collider.bounds.center;
+        //Collider2D collider = collisionOther.collider;
+        //Vector3 center = collider.bounds.center;
         
         for (int i = 0; i < collisionOther.contacts.GetLength(0); i++)
         {
@@ -65,4 +65,4 @@ public class PlayerCollision : MonoBehaviour
             }//end else
         }//end for*/
     }//end OnCollisionStay()
-}//end PlayerCollision
+}//end class PlayerCollision

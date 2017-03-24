@@ -21,7 +21,7 @@ public class CameraMovement : MonoBehaviour
     }//end Start()
 	
 	// Update is called once per frame
-	void Update ()
+	void LateUpdate ()
     {
         offset = transform.position - new Vector3(playerMov.playerBody.position.x, playerMov.playerBody.position.y, 0);
         
