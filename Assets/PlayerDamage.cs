@@ -22,13 +22,13 @@ public class PlayerDamage : MonoBehaviour
             myParent.canJump = true;
             if (myParent.expectedAngle == 0)
             {
-                if (collisionOther.contacts[i].point.x > myParent.playerBody.position.x + 0.248f && collisionOther.contacts[i].point.y < myParent.playerBody.position.y + 0.2f && collisionOther.contacts[i].point.y > myParent.playerBody.position.y - 0.2f)
+                if (collisionOther.gameObject.name.StartsWith("Enemy") && collisionOther.contacts[i].point.x > myParent.playerBody.position.x + 0.248f && collisionOther.contacts[i].point.y < myParent.playerBody.position.y + 0.2f && collisionOther.contacts[i].point.y > myParent.playerBody.position.y - 0.2f)
                 {
                     //Debug.Log("RIGHT");
                     playerHealth--;
                     break;
                 }//end if
-                else if (collisionOther.contacts[i].point.x < myParent.playerBody.position.x - 0.248f && collisionOther.contacts[i].point.y < myParent.playerBody.position.y + 0.2f && collisionOther.contacts[i].point.y > myParent.playerBody.position.y - 0.2f)
+                else if (collisionOther.gameObject.name.StartsWith("Enemy") && collisionOther.contacts[i].point.x < myParent.playerBody.position.x - 0.248f && collisionOther.contacts[i].point.y < myParent.playerBody.position.y + 0.2f && collisionOther.contacts[i].point.y > myParent.playerBody.position.y - 0.2f)
                 {
                     //Debug.Log("LEFT");
                     playerHealth--;
@@ -37,13 +37,13 @@ public class PlayerDamage : MonoBehaviour
             }//end for
             else
             {
-                if (collisionOther.contacts[i].point.y > myParent.playerBody.position.y + 0.248f && collisionOther.contacts[i].point.x < myParent.playerBody.position.x + 0.2f && collisionOther.contacts[i].point.x > myParent.playerBody.position.x - 0.2f)
+                if (collisionOther.gameObject.name.StartsWith("Enemy") && collisionOther.contacts[i].point.y > myParent.playerBody.position.y + 0.248f && collisionOther.contacts[i].point.x < myParent.playerBody.position.x + 0.2f && collisionOther.contacts[i].point.x > myParent.playerBody.position.x - 0.2f)
                 {
                     //Debug.Log("RIGHT");
                     playerHealth--;
                     break;
                 }//end if
-                else if (collisionOther.contacts[i].point.y < myParent.playerBody.position.y - 0.248f && collisionOther.contacts[i].point.x < myParent.playerBody.position.x + 0.2f && collisionOther.contacts[i].point.x > myParent.playerBody.position.x - 0.2f)
+                else if (collisionOther.gameObject.name.StartsWith("Enemy") && collisionOther.contacts[i].point.y < myParent.playerBody.position.y - 0.248f && collisionOther.contacts[i].point.x < myParent.playerBody.position.x + 0.2f && collisionOther.contacts[i].point.x > myParent.playerBody.position.x - 0.2f)
                 {
                     //Debug.Log("LEFT");
                     playerHealth--;
