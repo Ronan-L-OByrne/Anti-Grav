@@ -2,19 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager_TogglePause : MonoBehaviour
+public class GM_TogglePause : MonoBehaviour
 {
     private GM_Master gameManagerMaster;
     private bool isPaused;
 
     private void OnEnable()
     {
+        SetInitReferences();
 
+        gameManagerMaster.MenuToggleEvent += TogglePause;
+        gameManagerMaster.InventoryUIEvent += TogglePause;
     }//end OnEnable()
 
     private void OnDisable()
     {
-
+        gameManagerMaster.MenuToggleEvent -= TogglePause;
+        gameManagerMaster.InventoryUIEvent -= TogglePause;
     }//end OnDisable()
 
     private void SetInitReferences()
@@ -35,4 +39,4 @@ public class GameManager_TogglePause : MonoBehaviour
             isPaused = true;
         }//end else
     }//end TogglePause()
-}//end class GameManager_TogglePause
+}//end class GM_TogglePause
