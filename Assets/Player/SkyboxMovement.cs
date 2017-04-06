@@ -13,7 +13,7 @@ public class SkyboxMovement : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        player = GameObject.Find("PlayerTemp");
+        player = GameObject.Find("Player");
         playerMov = player.GetComponent<PlayerMovement>();
         time = 0;
         maxOffset = 1;

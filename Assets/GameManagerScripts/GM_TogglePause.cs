@@ -12,13 +12,13 @@ public class GM_TogglePause : MonoBehaviour
         SetInitReferences();
 
         gameManagerMaster.MenuToggleEvent += TogglePause;
-        gameManagerMaster.InventoryUIEvent += TogglePause;
+        gameManagerMaster.UIEvent += TogglePause;
     }//end OnEnable()
 
     private void OnDisable()
     {
         gameManagerMaster.MenuToggleEvent -= TogglePause;
-        gameManagerMaster.InventoryUIEvent -= TogglePause;
+        gameManagerMaster.UIEvent -= TogglePause;
     }//end OnDisable()
 
     private void SetInitReferences()

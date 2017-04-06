@@ -7,11 +7,6 @@ public class GM_ToggleMenu : MonoBehaviour
     private GM_Master gameManagerMaster;
     public GameObject menu;
 
-    private void Start()
-    {
-        ToggleMenu();
-    }//end Start()
-
     private void Update()
     {
         CheckToggleMenuReq();

@@ -6,12 +6,12 @@ public class GM_Master : MonoBehaviour
 {
     public delegate void GM_EventHandler();
     public event GM_EventHandler MenuToggleEvent;
-    public event GM_EventHandler InventoryUIEvent;
+    public event GM_EventHandler UIEvent;
     public event GM_EventHandler RestartLevelEvent;
     public event GM_EventHandler GoToMenuSceneEvent;
     public event GM_EventHandler GameOverEvent;
 
-    public bool GameOver;
+    public bool GameOver = false;
     public bool InventoryUIOn;
     public bool MenuOn;
 
@@ -23,13 +23,13 @@ public class GM_Master : MonoBehaviour
         }//end if
     }//end CallEventMenuToggle()
     
-    public void CallEventInventoryUI()
+    public void CallEventUI()
     {
-        if (InventoryUIEvent != null)
+        if (UIEvent != null)
         {
-            InventoryUIEvent();
+            UIEvent();
         }//end if
-    }//end CallInventoryUIEvent()
+    }//end CallUIEvent()
 
     public void CallEventRestartLevel()
     {

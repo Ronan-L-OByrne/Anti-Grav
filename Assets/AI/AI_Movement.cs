@@ -14,7 +14,7 @@ public class AI_Movement : MonoBehaviour
 	// Use this for initialization
 	void Start ()
     {
-        player = GameObject.Find("PlayerTemp");
+        player = GameObject.Find("Player");
         playerMov = player.GetComponent<PlayerMovement>();
         AIBody = GetComponent<Rigidbody2D>();
         AIBody.velocity = new Vector2(AIBody.velocity.x, AIBody.velocity.y - 0.2f);
