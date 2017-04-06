@@ -8,14 +8,14 @@ public class AI_Movement : MonoBehaviour
     public Rigidbody2D AIBody;
     private SpriteRenderer AISprite;
     public static GameObject player;
-    public PlayerMovement playerMov;
+    public PM_Movement playerMov;
     public float AISpeed;
 
 	// Use this for initialization
 	void Start ()
     {
         player = GameObject.Find("Player");
-        playerMov = player.GetComponent<PlayerMovement>();
+        playerMov = player.GetComponent<PM_Movement>();
         AIBody = GetComponent<Rigidbody2D>();
         AIBody.velocity = new Vector2(AIBody.velocity.x, AIBody.velocity.y - 0.2f);
         AISprite = GetComponent<SpriteRenderer>();

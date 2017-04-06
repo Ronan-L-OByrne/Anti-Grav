@@ -42,7 +42,7 @@ public class GM_ToggleCursor : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
-        }
+        }//end else 
     }//end CheckCursorLock
 
     // Update is called once per frame

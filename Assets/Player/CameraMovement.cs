@@ -6,7 +6,7 @@ public class CameraMovement : MonoBehaviour
 {
     //Variables
     public static GameObject player;
-    public PlayerMovement playerMov;
+    public PM_Movement playerMov;
     public Vector3 offset, temp;
     public float maxOffset, time;
 
@@ -14,7 +14,7 @@ public class CameraMovement : MonoBehaviour
 	void Start ()
     {
         player = GameObject.Find("Player");
-        playerMov = player.GetComponent<PlayerMovement>();
+        playerMov = player.GetComponent<PM_Movement>();
         time = 0;
         maxOffset = 1;
         temp = new Vector3(transform.position.x, transform.position.y, -10);

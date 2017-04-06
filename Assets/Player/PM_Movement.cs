@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PM_Movement : MonoBehaviour
 {
     //Game Manager Variable
     private GM_Master gameManagerMaster;
@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
     void Start ()
     {
         gameManagerMaster = GetComponent<GM_Master>();
-        playerManagerMaster = GetComponent<>(PM_Master);
+        playerManagerMaster = GetComponent<PM_Master>();
         moveSpeed = 0.2f;
         maxSpeed = moveSpeed*100;
         jumpHeight = new Vector2(0, 18.75f);

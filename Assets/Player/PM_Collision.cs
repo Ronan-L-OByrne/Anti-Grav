@@ -2,11 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerCollision : MonoBehaviour
+public class PM_Collision : MonoBehaviour
 {
+    public PM_Movement myParent;
+
+    private void Start()
+    {
+        myParent = transform.parent.GetComponent<PM_Movement>();
+    }//end Start()
+
     void OnCollisionStay2D(Collision2D collisionOther)
     {
-        PlayerMovement myParent = transform.parent.GetComponent<PlayerMovement>();
         //Collider2D collider = collisionOther.collider;
         //Vector3 center = collider.bounds.center;
         

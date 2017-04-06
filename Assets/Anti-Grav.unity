@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 41451762}
   - component: {fileID: 41451761}
   m_Layer: 0
-  m_Name: EvilPlayer#1
+  m_Name: Enemy_EvilPlayer#1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -320,7 +320,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61b463fc45e4a4c409d6dd16f0e61e56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerMov: {fileID: 2144811507}
+  playerMov: {fileID: 0}
   offset: {x: 0, y: 0, z: 0}
   temp: {x: 0, y: 0, z: 0}
   maxOffset: 0
@@ -521,7 +521,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTag: Player
-  enemyTag: Enemy
+  enemyTag: EnemySystem
 --- !u!114 &165726468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2177,9 +2177,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1272704916}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a542bfd6fa903945aa2aba343ed618b, type: 3}
+  m_Script: {fileID: 11500000, guid: 82df3c73f7212814592ca80212806e16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myParent: {fileID: 0}
 --- !u!61 &1272704919
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2265,10 +2266,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1272704916}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f96a7ef53543e84980e5a6aa2c0c76b, type: 3}
+  m_Script: {fileID: 11500000, guid: e3f57fc9b16ce374686ec29d66fc2003, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerHealth: 0
 --- !u!1 &1353885262
 GameObject:
   m_ObjectHideFlags: 0
@@ -2779,7 +2779,7 @@ GameObject:
   - component: {fileID: 1694902755}
   - component: {fileID: 1694902754}
   m_Layer: 0
-  m_Name: EvilPlayer#2
+  m_Name: Enemy_EvilPlayer#2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3048,7 +3048,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d8ec73354e5f3c4a99f43d99905a6dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerMov: {fileID: 2144811507}
+  playerMov: {fileID: 0}
   offset: {x: 0, y: 0, z: 0}
   temp: {x: 0, y: 0, z: 0}
   maxOffset: 0
@@ -3136,7 +3136,7 @@ GameObject:
   - component: {fileID: 2109039417}
   - component: {fileID: 2109039416}
   m_Layer: 0
-  m_Name: EvilPlayer#3
+  m_Name: Enemy_EvilPlayer#3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3300,11 +3300,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2144811502}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92c029f676e61a94f9900b69c4081eec, type: 3}
+  m_Script: {fileID: 11500000, guid: f14a26cc6972ac3429b21f02b3cd6953, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerHealth: 0
-  maxHealth: 0
+  playerHealth: 5
+  maxHealth: 5
   healthText: {fileID: 0}
 --- !u!212 &2144811505
 SpriteRenderer:
@@ -3363,10 +3363,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2144811502}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b3bfd373aaff4e41b825bdfce835145, type: 3}
+  m_Script: {fileID: 11500000, guid: 5601374ca7c26244f817d9ccfd790049, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0.05
+  moveSpeed: 0
   maxSpeed: 0
   jumpHeight: {x: 0, y: 0}
   canJump: 0

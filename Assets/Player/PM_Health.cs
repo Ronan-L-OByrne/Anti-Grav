@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Player_Health : MonoBehaviour
+public class PM_Health : MonoBehaviour
 {
     private GM_Master gameManagerMaster;
     private PM_Master playerManagerMaster;
@@ -13,8 +13,8 @@ public class Player_Health : MonoBehaviour
 
     private void Start()
     {
-        maxHealth = 5;
-        playerHealth = maxHealth;
+        //maxHealth = 5;
+        //playerHealth = maxHealth;
         //StartCoroutine(TestDeduction());
     }//end Start()
 
@@ -41,7 +41,8 @@ public class Player_Health : MonoBehaviour
 
     IEnumerator TestDeduction()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(2);
+        DeductHealth(5);
     }//end TestDeduction
 
     public void DeductHealth(int healthChange)
