@@ -6,16 +6,8 @@ public class PM_Collision : MonoBehaviour
 {
     public PM_Movement myParent;
 
-    private void Start()
-    {
-        myParent = transform.parent.GetComponent<PM_Movement>();
-    }//end Start()
-
     void OnCollisionStay2D(Collision2D collisionOther)
     {
-        //Collider2D collider = collisionOther.collider;
-        //Vector3 center = collider.bounds.center;
-        
         for (int i = 0; i < collisionOther.contacts.GetLength(0); i++)
         {
             myParent.canJump = true;

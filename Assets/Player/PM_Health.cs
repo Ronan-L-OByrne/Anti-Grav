@@ -8,21 +8,13 @@ public class PM_Health : MonoBehaviour
     private GM_Master gameManagerMaster;
     private PM_Master playerManagerMaster;
     public int playerHealth;
-    public int maxHealth;
-    public Text healthText;
-
-    private void Start()
-    {
-        //maxHealth = 5;
-        //playerHealth = maxHealth;
-        //StartCoroutine(TestDeduction());
-    }//end Start()
+    private int maxHealth;
+    public int InvisFrames;
 
     private void OnEnable()
     {
         SetInitReferences();
-
-        SetUI();
+        
         playerManagerMaster.DeductHealthEvent += DeductHealth;
         playerManagerMaster.IncreaseHealthEvent += IncreaseHealth;
     }//end OnEnable()
@@ -48,14 +40,13 @@ public class PM_Health : MonoBehaviour
     public void DeductHealth(int healthChange)
     {
         playerHealth -= healthChange;
+        InvisFrames = 1;
 
         if (playerHealth <= 0)
         {
             playerHealth = 0;
             gameManagerMaster.CallEventGameOver();
         }//end if()
-
-        SetUI();
     }//end Deduct Health
 
     public void IncreaseHealth(int healthChange)
@@ -66,15 +57,11 @@ public class PM_Health : MonoBehaviour
         {
             playerHealth = maxHealth;
         }//end if()
-
-        SetUI();
     }//end IncreaseHealth
 
-    public void SetUI()
+    void OnGUI()
     {
-        if(healthText != null)
-        {
-            healthText.text = playerHealth.ToString();
-        }//end if
-    }//end setUI()
+        // Make a background box
+        GUI.Box(new Rect(10, 10, 70, 23), "Health: " + playerHealth);
+    }//end OnGUI()
 }//end class Player_Health

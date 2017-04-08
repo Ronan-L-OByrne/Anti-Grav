@@ -122,8 +122,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acbd67472c8494242a26449fb9e44be4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AIBody: {fileID: 0}
-  playerMov: {fileID: 0}
+  AIBody: {fileID: 41451764}
+  playerMov: {fileID: 2144811507}
   AISpeed: 0
 --- !u!61 &41451762
 BoxCollider2D:
@@ -320,7 +320,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61b463fc45e4a4c409d6dd16f0e61e56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerMov: {fileID: 0}
+  playerMov: {fileID: 2144811507}
   offset: {x: 0, y: 0, z: 0}
   temp: {x: 0, y: 0, z: 0}
   maxOffset: 0
@@ -2148,7 +2148,6 @@ GameObject:
   - component: {fileID: 1272704920}
   - component: {fileID: 1272704922}
   - component: {fileID: 1272704918}
-  - component: {fileID: 1272704923}
   m_Layer: 0
   m_Name: ColliderDetection
   m_TagString: Untagged
@@ -2180,7 +2179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82df3c73f7212814592ca80212806e16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myParent: {fileID: 0}
+  myParent: {fileID: 2144811507}
 --- !u!61 &1272704919
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2258,17 +2257,6 @@ BoxCollider2D:
   m_Offset: {x: 0, y: -0.39}
   serializedVersion: 2
   m_Size: {x: 0.45, y: 0.1}
---- !u!114 &1272704923
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1272704916}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3f57fc9b16ce374686ec29d66fc2003, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1353885262
 GameObject:
   m_ObjectHideFlags: 0
@@ -2796,8 +2784,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acbd67472c8494242a26449fb9e44be4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AIBody: {fileID: 0}
-  playerMov: {fileID: 0}
+  AIBody: {fileID: 1694902757}
+  playerMov: {fileID: 2144811507}
   AISpeed: 0
 --- !u!61 &1694902755
 BoxCollider2D:
@@ -3153,8 +3141,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acbd67472c8494242a26449fb9e44be4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AIBody: {fileID: 0}
-  playerMov: {fileID: 0}
+  AIBody: {fileID: 2109039419}
+  playerMov: {fileID: 2144811507}
   AISpeed: 0
 --- !u!61 &2109039417
 BoxCollider2D:
@@ -3304,8 +3292,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHealth: 5
-  maxHealth: 5
-  healthText: {fileID: 0}
+  InvisFrames: 0
 --- !u!212 &2144811505
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3372,7 +3359,7 @@ MonoBehaviour:
   canJump: 0
   jumping: 0
   spriteFlip: 0
-  playerBody: {fileID: 0}
+  playerBody: {fileID: 2144811503}
   expectedAngle: 0
   curAngle: 0
   time: 0

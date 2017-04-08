@@ -16,18 +16,19 @@ public class AI_Movement : MonoBehaviour
     {
         player = GameObject.Find("Player");
         playerMov = player.GetComponent<PM_Movement>();
-        AIBody = GetComponent<Rigidbody2D>();
         AIBody.velocity = new Vector2(AIBody.velocity.x, AIBody.velocity.y - 0.2f);
         AISprite = GetComponent<SpriteRenderer>();
         AISpeed = 3.0f;
 	}//end Start()
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnCollisionEnter2D(Collision2D other)
     {
-        //if (other = "PlayerTemp")
+        if (other.gameObject.name.StartsWith("Player"))
         {
-            AISpeed = -AISpeed;
+            player.GetComponent<PM_Master>().CallEventDeductHealth(1);
         }//end if
+
+        AISpeed = -AISpeed;
     }//end OnCollisionEnter
 
     // Update is called once per frame
@@ -36,8 +37,7 @@ public class AI_Movement : MonoBehaviour
         AIBody.velocity = new Vector2(AISpeed, AIBody.velocity.y);
 
         transform.eulerAngles = new Vector3(0, 0, 0);
-
-
+        
         if (AISpeed > 0)
         {
             AISprite.flipX = true;
