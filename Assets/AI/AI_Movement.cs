@@ -10,24 +10,21 @@ public class AI_Movement : MonoBehaviour
     public static GameObject player;
     public PM_Movement playerMov;
     public float AISpeed;
+    public float AIHealth;
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start ()
     {
         player = GameObject.Find("Player");
         playerMov = player.GetComponent<PM_Movement>();
         AIBody.velocity = new Vector2(AIBody.velocity.x, AIBody.velocity.y - 0.2f);
         AISprite = GetComponent<SpriteRenderer>();
         AISpeed = 3.0f;
+        AIHealth = 1.0f;
 	}//end Start()
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.name.StartsWith("Player"))
-        {
-            player.GetComponent<PM_Master>().CallEventDeductHealth(1);
-        }//end if
-
         AISpeed = -AISpeed;
     }//end OnCollisionEnter
 
@@ -46,5 +43,10 @@ public class AI_Movement : MonoBehaviour
         {
             AISprite.flipX = false;
         }//end else if
+
+        if (player.GetComponent<PM_Health>().invFrames > 0)
+        {
+            player.GetComponent<PM_Health>().invFrames -= 1;
+        }//end if
     }//end Update()
 }//end class AI_Movement

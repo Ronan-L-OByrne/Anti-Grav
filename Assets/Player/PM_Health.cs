@@ -9,7 +9,7 @@ public class PM_Health : MonoBehaviour
     private PM_Master playerManagerMaster;
     public int playerHealth;
     private int maxHealth;
-    public int InvisFrames;
+    public int invFrames;
 
     private void OnEnable()
     {
@@ -31,16 +31,14 @@ public class PM_Health : MonoBehaviour
         playerManagerMaster = GameObject.Find("Player").GetComponent<PM_Master>();
     }//end setInitReferences()
 
-    IEnumerator TestDeduction()
-    {
-        yield return new WaitForSeconds(2);
-        DeductHealth(5);
-    }//end TestDeduction
-
     public void DeductHealth(int healthChange)
     {
-        playerHealth -= healthChange;
-        InvisFrames = 1;
+        if (invFrames <= 0)
+        {
+            playerHealth -= healthChange;
+        }//end if
+
+        invFrames = 300;
 
         if (playerHealth <= 0)
         {
@@ -64,4 +62,8 @@ public class PM_Health : MonoBehaviour
         // Make a background box
         GUI.Box(new Rect(10, 10, 70, 23), "Health: " + playerHealth);
     }//end OnGUI()
+
+    private void Update()
+    {
+    }//end Update()
 }//end class Player_Health
