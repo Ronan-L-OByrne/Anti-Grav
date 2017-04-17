@@ -65,5 +65,14 @@ public class PM_Health : MonoBehaviour
 
     private void Update()
     {
+        if (invFrames > 0)
+        {
+            invFrames -= 1;
+        }//end if
     }//end Update()
+
+    private void Start()
+    {
+        playerHealth = 5;
+    }//end Start()
 }//end class Player_Health
