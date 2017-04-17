@@ -144,6 +144,11 @@ public class PM_Movement : MonoBehaviour
                 expectedAngle = 90;
                 jumpHeight = new Vector2(-jumpHeight.y, jumpHeight.x);
             }//end if
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                playerManagerMaster.CallEventAttack();
+            }//end if
         }//end if
         else if(expectedAngle == 90)
         {
@@ -166,6 +171,11 @@ public class PM_Movement : MonoBehaviour
             {
                 expectedAngle = 0;
                 jumpHeight = new Vector2(jumpHeight.y, -jumpHeight.x);
+            }//end if
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                playerManagerMaster.CallEventAttack();
             }//end if
         }//end else if
     }//end checkKeys()

@@ -26,7 +26,7 @@ public class PM_Master : MonoBehaviour
         }//end if
     }//end CallEventIncreaseHealth()
 
-    public void CallEventAttack(int notUsed)
+    public void CallEventAttack()
     {
         if (IncreaseHealthEvent != null)
         {
