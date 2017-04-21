@@ -2172,6 +2172,7 @@ GameObject:
   - component: {fileID: 1272704920}
   - component: {fileID: 1272704922}
   - component: {fileID: 1272704918}
+  - component: {fileID: 1272704923}
   m_Layer: 0
   m_Name: ColliderDetection
   m_TagString: Untagged
@@ -2210,21 +2211,21 @@ BoxCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1272704916}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0.335}
+  m_Offset: {x: 0.021768346, y: 0.31685975}
   serializedVersion: 2
-  m_Size: {x: 0.3, y: 0.32}
+  m_Size: {x: 0.3435367, y: 0.28371948}
 --- !u!61 &1272704920
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1272704916}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -2273,7 +2274,7 @@ BoxCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1272704916}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -2281,6 +2282,28 @@ BoxCollider2D:
   m_Offset: {x: 0, y: -0.39}
   serializedVersion: 2
   m_Size: {x: 0.45, y: 0.1}
+--- !u!68 &1272704923
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1272704916}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  m_Points:
+  - {x: 0.16602087, y: 0.46844202}
+  - {x: -0.14606877, y: 0.46592224}
+  - {x: -0.14537042, y: 0.1868128}
+  - {x: -0.20485261, y: 0.18676819}
+  - {x: -0.20454144, y: -0.41859847}
+  - {x: 0.2145483, y: -0.41822073}
+  - {x: 0.21217103, y: 0.18967274}
+  - {x: 0.16669793, y: 0.1894337}
+  - {x: 0.16581371, y: 0.4697562}
 --- !u!1 &1353885262
 GameObject:
   m_ObjectHideFlags: 0
@@ -2999,6 +3022,7 @@ GameObject:
   - component: {fileID: 1939753530}
   - component: {fileID: 1939753529}
   - component: {fileID: 1939753531}
+  - component: {fileID: 1939753532}
   m_Layer: 0
   m_Name: PlayerFist
   m_TagString: Untagged
@@ -3079,6 +3103,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c72e5c4d9ab96b46b4f00b11fbf511b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerFist: {fileID: 1939753532}
+  player: {fileID: 0}
+--- !u!50 &1939753532
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1939753527}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 0.0001
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
 --- !u!1 &1941638098
 GameObject:
   m_ObjectHideFlags: 0

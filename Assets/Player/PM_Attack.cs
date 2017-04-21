@@ -6,7 +6,7 @@ public class PM_Attack : MonoBehaviour
 {
     private PM_Master playerManagerMaster;
     public Rigidbody2D playerFist;
-    public Rigidbody2D playerBody;
+    public GameObject player;
     private bool attackingChk;
     private int attackSpeed;
 
@@ -29,8 +29,11 @@ public class PM_Attack : MonoBehaviour
 
     void PlayerAttack()
     {
-        attackingChk = true;
-        attackSpeed = 10;
+        if (!attackingChk)
+        {
+            attackingChk = true;
+            attackSpeed = 25;
+        }//end if
     }//end PlayerAttack
 
     private void Start()
@@ -38,35 +41,26 @@ public class PM_Attack : MonoBehaviour
         attackingChk = false;
         attackSpeed = 0;
         playerFist = GetComponent<Rigidbody2D>();
-        playerBody = GameObject.Find("Player").GetComponent<Rigidbody2D>();
+        player = GameObject.Find("Player");
+        Physics2D.IgnoreCollision(GameObject.Find("ColliderDetection").GetComponent<EdgeCollider2D>(), GetComponent<EdgeCollider2D>());
     }//end Start()
 
     private void Update()
     {
-        if (attackingChk && attackSpeed > 0)
+        transform.eulerAngles = new Vector3(0, 0, player.GetComponent<PM_Movement>().curAngle);
+        if (attackingChk && attackSpeed > -25)
         {
-            playerFist.velocity = new Vector2(0.5f, 0);
+            playerFist.velocity = new Vector2(player.GetComponent<Rigidbody2D>().velocity.x + attackSpeed, player.GetComponent<Rigidbody2D>().velocity.y);
             attackSpeed--;
         }//end if
-        else if(playerFist.position.x != playerBody.position.x || playerFist.position.y != playerBody.position.y)
+        else if (playerFist.position.x != player.GetComponent<Rigidbody2D>().position.x || playerFist.position.y != player.GetComponent<Rigidbody2D>().position.y)
         {
-            if (playerFist.position.x > playerBody.position.x)
-            {
-                playerFist.velocity = new Vector2(-0.5f, 0);
-            }//end if
-            else if (playerFist.position.x < playerBody.position.x)
-            {
-                playerFist.velocity = new Vector2(0.5f, 0);
-            }//end if
-
-            if (playerFist.position.y > playerBody.position.y)
-            {
-                playerFist.velocity = new Vector2(0, -0.5f);
-            }//end if
-            else if (playerFist.position.y < playerBody.position.y)
-            {
-                playerFist.velocity = new Vector2(0, 0.5f);
-            }//end if
+            attackingChk = false;
+            playerFist.position = new Vector2(player.GetComponent<Rigidbody2D>().position.x, player.GetComponent<Rigidbody2D>().position.y);
         }//end else if
+        else
+        {
+            attackingChk = false;
+        }//end else
     }//end Update()
 }//end class PM_Attack
