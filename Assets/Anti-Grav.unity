@@ -2211,21 +2211,21 @@ BoxCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1272704916}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0.021768346, y: 0.31685975}
+  m_Offset: {x: 0, y: 0.32}
   serializedVersion: 2
-  m_Size: {x: 0.3435367, y: 0.28371948}
+  m_Size: {x: 0.35, y: 0.35}
 --- !u!61 &1272704920
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1272704916}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -2274,7 +2274,7 @@ BoxCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1272704916}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -2288,22 +2288,26 @@ EdgeCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1272704916}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   m_Points:
-  - {x: 0.16602087, y: 0.46844202}
-  - {x: -0.14606877, y: 0.46592224}
-  - {x: -0.14537042, y: 0.1868128}
-  - {x: -0.20485261, y: 0.18676819}
-  - {x: -0.20454144, y: -0.41859847}
-  - {x: 0.2145483, y: -0.41822073}
-  - {x: 0.21217103, y: 0.18967274}
-  - {x: 0.16669793, y: 0.1894337}
-  - {x: 0.16581371, y: 0.4697562}
+  - {x: 0.17420837, y: 0.49378446}
+  - {x: -0.17497613, y: 0.49318716}
+  - {x: -0.17643377, y: 0.17005895}
+  - {x: -0.25003886, y: 0.16998678}
+  - {x: -0.24998797, y: -0.33000657}
+  - {x: -0.22507372, y: -0.3300156}
+  - {x: -0.22498913, y: -0.43999118}
+  - {x: 0.22499374, y: -0.43997058}
+  - {x: 0.2248843, y: -0.33002478}
+  - {x: 0.24999674, y: -0.3300021}
+  - {x: 0.25000656, y: 0.17000599}
+  - {x: 0.17494975, y: 0.17003748}
+  - {x: 0.17355768, y: 0.49468502}
 --- !u!1 &1353885262
 GameObject:
   m_ObjectHideFlags: 0
@@ -3049,7 +3053,7 @@ BoxCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1939753527}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -3087,7 +3091,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 7ed5162d1e315584f92bb760354341a0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
@@ -3104,13 +3108,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerFist: {fileID: 1939753532}
-  player: {fileID: 0}
-  attackingChk: 0
-  attackSpeed: 0
-  startTime: 0
-  journeyLength: 0
-  startMarker: {fileID: 0}
-  endMarker: {fileID: 0}
 --- !u!50 &1939753532
 Rigidbody2D:
   serializedVersion: 4
@@ -3437,7 +3434,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 727bd26cc7811d54badf3bc8f8d387a3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1

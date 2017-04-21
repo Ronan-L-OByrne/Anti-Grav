@@ -49,7 +49,7 @@ public class PM_Attack : MonoBehaviour
         attackSpeed = 0;
         playerFist = GetComponent<Rigidbody2D>();
         player = GameObject.Find("Player");
-        Physics2D.IgnoreCollision(GameObject.Find("ColliderDetection").GetComponent<EdgeCollider2D>(), GetComponent<BoxCollider2D>());
+        Physics2D.IgnoreLayerCollision(2, 1);
     }//end Start()
 
     private void Update()

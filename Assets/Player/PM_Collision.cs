@@ -6,43 +6,56 @@ public class PM_Collision : MonoBehaviour
 {
     public PM_Movement myParent;
 
+    private void Start()
+    {
+        Physics2D.IgnoreLayerCollision(1, 2);
+    }//end Start()
+
+    void OnCollisionExit2D(Collision2D collisionOther)
+    {
+        myParent.canJump = false;
+        myParent.jumping = true;
+    }//end OnCollisionExit2D()
+
     void OnCollisionStay2D(Collision2D collisionOther)
     {
+        myParent.canJump = true;
+        myParent.jumping = false;
         for (int i = 0; i < collisionOther.contacts.GetLength(0); i++)
         {
-            myParent.canJump = true;
             if (myParent.expectedAngle == 0)
             {
-                if (collisionOther.contacts[i].point.x > myParent.playerBody.position.x + 0.248f && collisionOther.contacts[i].point.y < myParent.playerBody.position.y + 0.2f && collisionOther.contacts[i].point.y > myParent.playerBody.position.y - 0.2f)
+                if (collisionOther.contacts[i].point.x > myParent.playerBody.position.x + 0.23f && collisionOther.contacts[i].point.y < myParent.playerBody.position.y + 0.25f && collisionOther.contacts[i].point.y > myParent.playerBody.position.y - 0.25f)
                 {
                     if (collisionOther.gameObject.name.StartsWith("Enemy") && myParent.GetComponent<PM_Health>().invFrames <= 0)
                     {
+                        Debug.Log("Hit");
                         myParent.GetComponent<PM_Master>().CallEventDeductHealth(1);
                     }//end if
 
-                    //Debug.Log("RIGHT"); 0.5
+                    Debug.Log("RIGHT");
                     myParent.jumpHeight = new Vector2(-myParent.moveSpeed * 35, myParent.moveSpeed * 45);
                     break;
                 }//end if
-                else if (collisionOther.contacts[i].point.x < myParent.playerBody.position.x - 0.248f && collisionOther.contacts[i].point.y < myParent.playerBody.position.y + 0.2f && collisionOther.contacts[i].point.y > myParent.playerBody.position.y - 0.2f)
+                else if (collisionOther.contacts[i].point.x < myParent.playerBody.position.x - 0.23f && collisionOther.contacts[i].point.y < myParent.playerBody.position.y + 0.25f && collisionOther.contacts[i].point.y > myParent.playerBody.position.y - 0.25f)
                 {
                     if (collisionOther.gameObject.name.StartsWith("Enemy") && myParent.GetComponent<PM_Health>().invFrames <= 0)
                     {
                         myParent.GetComponent<PM_Master>().CallEventDeductHealth(1);
                     }//end if
 
-                    //Debug.Log("LEFT");
+                    Debug.Log("LEFT");
                     myParent.jumpHeight = new Vector2(myParent.moveSpeed * 35, myParent.moveSpeed * 45);
                     break;
                 }//end else if
-                else if (collisionOther.contacts[i].point.y > myParent.playerBody.position.y + 0.335f)
+                else if (collisionOther.contacts[i].point.y > myParent.playerBody.position.y + .28f)
                 {
                     //Debug.Log("TOP");
                     myParent.jumpHeight = new Vector2(0.0f, 0.0f);
                 }//end else if
                 else if (collisionOther.contacts[i].point.y < myParent.playerBody.position.y - 0.4f)
                 {
-                    //Debug.Log("BOTTOM");
+                    Debug.Log("BOTTOM");
                     myParent.jumpHeight = new Vector2(0.0f, myParent.moveSpeed * 45);
                 }//end else if
             }//end if
