@@ -6,9 +6,14 @@ public class PM_Attack : MonoBehaviour
 {
     private PM_Master playerManagerMaster;
     public Rigidbody2D playerFist;
-    public GameObject player;
+    private GameObject player;
     private bool attackingChk;
-    private int attackSpeed;
+    private float attackSpeed;
+
+    private float startTime;
+    private float journeyLength;
+    private Transform startMarker;
+    private Transform endMarker;
 
     private void OnEnable()
     {
@@ -29,10 +34,12 @@ public class PM_Attack : MonoBehaviour
 
     void PlayerAttack()
     {
-        if (!attackingChk)
+        if (!attackingChk && attackSpeed == 0)
         {
+            startTime = Time.time;
             attackingChk = true;
-            attackSpeed = 25;
+            journeyLength = Vector2.Distance(transform.position, new Vector2(player.transform.position.x + 2, player.transform.position.y));
+            //attackSpeed = 1;
         }//end if
     }//end PlayerAttack
 
@@ -42,21 +49,39 @@ public class PM_Attack : MonoBehaviour
         attackSpeed = 0;
         playerFist = GetComponent<Rigidbody2D>();
         player = GameObject.Find("Player");
-        Physics2D.IgnoreCollision(GameObject.Find("ColliderDetection").GetComponent<EdgeCollider2D>(), GetComponent<EdgeCollider2D>());
+        Physics2D.IgnoreCollision(GameObject.Find("ColliderDetection").GetComponent<EdgeCollider2D>(), GetComponent<BoxCollider2D>());
     }//end Start()
 
     private void Update()
     {
         transform.eulerAngles = new Vector3(0, 0, player.GetComponent<PM_Movement>().curAngle);
-        if (attackingChk && attackSpeed > -25)
+        if (attackingChk)
         {
-            playerFist.velocity = new Vector2(player.GetComponent<Rigidbody2D>().velocity.x + attackSpeed, player.GetComponent<Rigidbody2D>().velocity.y);
-            attackSpeed--;
+            float distCovered = (Time.time - startTime) * .5f;
+            float fracJourney = distCovered / journeyLength;
+            transform.position = Vector2.Lerp(transform.position, new Vector2((player.transform.position.x + 2), player.transform.position.y), fracJourney);
+            attackSpeed += 1;
+
+            if(attackSpeed >= 25)
+            {
+                startTime = Time.time;
+                attackingChk = false;
+                journeyLength = Vector2.Distance(transform.position, new Vector2(player.transform.position.x - 1, player.transform.position.y));
+            }//end if
         }//end if
-        else if (playerFist.position.x != player.GetComponent<Rigidbody2D>().position.x || playerFist.position.y != player.GetComponent<Rigidbody2D>().position.y)
+        else if(!attackingChk && attackSpeed > 0)
         {
-            attackingChk = false;
-            playerFist.position = new Vector2(player.GetComponent<Rigidbody2D>().position.x, player.GetComponent<Rigidbody2D>().position.y);
+            float distCovered = (Time.time - startTime) * .5f;
+            float fracJourney = distCovered / journeyLength;
+            transform.position = Vector2.Lerp(transform.position, new Vector2((player.transform.position.x - 1), player.transform.position.y), fracJourney);
+            attackSpeed -= 1;
+        }//end else if
+        else if (playerFist.position.x != player.transform.position.x || playerFist.position.y != player.transform.position.y)
+        {
+            //Debug.Log("else if");
+            //attackingChk = false;
+            attackSpeed = 0;
+            transform.position = new Vector2(player.transform.position.x, player.transform.position.y);
         }//end else if
         else
         {

@@ -3049,7 +3049,7 @@ BoxCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1939753527}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -3105,6 +3105,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerFist: {fileID: 1939753532}
   player: {fileID: 0}
+  attackingChk: 0
+  attackSpeed: 0
+  startTime: 0
+  journeyLength: 0
+  startMarker: {fileID: 0}
+  endMarker: {fileID: 0}
 --- !u!50 &1939753532
 Rigidbody2D:
   serializedVersion: 4
