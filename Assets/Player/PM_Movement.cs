@@ -12,7 +12,6 @@ public class PM_Movement : MonoBehaviour
     public float moveSpeed, maxSpeed;
     public Vector2 jumpHeight;
     public bool canJump, jumping;
-    public bool spriteFlip;
     public Rigidbody2D playerBody;
     private SpriteRenderer mySprite;
     public int expectedAngle;
@@ -34,7 +33,6 @@ public class PM_Movement : MonoBehaviour
         playerBody.velocity = new Vector2(playerBody.velocity.x, playerBody.velocity.y-0.2f);
         mySprite = GetComponent<SpriteRenderer>();
         expectedAngle = 0;
-        spriteFlip = false;
         curAngle = 0;
         time = 0;
     }//end Start()
@@ -147,7 +145,7 @@ public class PM_Movement : MonoBehaviour
 
             if (Input.GetMouseButtonDown(0))
             {
-                playerManagerMaster.CallEventAttack();
+                playerManagerMaster.CallEventAttack(mySprite.flipX);
             }//end if
         }//end if
         else if(expectedAngle == 90)
@@ -175,7 +173,7 @@ public class PM_Movement : MonoBehaviour
 
             if (Input.GetMouseButtonDown(0))
             {
-                playerManagerMaster.CallEventAttack();
+                playerManagerMaster.CallEventAttack(mySprite.flipX);
             }//end if
         }//end else if
     }//end checkKeys()

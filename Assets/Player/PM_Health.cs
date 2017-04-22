@@ -36,10 +36,9 @@ public class PM_Health : MonoBehaviour
         if (invFrames <= 0)
         {
             playerHealth -= healthChange;
+            invFrames = 100;
         }//end if
-
-        invFrames = 300;
-
+        
         if (playerHealth <= 0)
         {
             playerHealth = 0;
@@ -49,6 +48,7 @@ public class PM_Health : MonoBehaviour
 
     public void IncreaseHealth(int healthChange)
     {
+        Debug.Log("Inc");
         playerHealth += healthChange;
 
         if (playerHealth >= maxHealth)
@@ -74,5 +74,6 @@ public class PM_Health : MonoBehaviour
     private void Start()
     {
         playerHealth = 5;
+        maxHealth = 10;
     }//end Start()
 }//end class Player_Health

@@ -24,12 +24,7 @@ public class AI_Movement : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collisionOther)
     {
         AISpeed = -AISpeed;
-
-        if (collisionOther.gameObject.name.StartsWith("Player"))
-        {
-            this.GetComponent<AI_Master>().CallEventDeductHealth(1);
-        }//end if
-    }//end OnCollisionEnter
+    }//end OnCollisionEnter()
 
     // Update is called once per frame
     void Update ()

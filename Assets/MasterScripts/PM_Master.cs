@@ -7,7 +7,7 @@ public class PM_Master : MonoBehaviour
     public delegate void PM_HealthHandler(int healthChange);
     public event PM_HealthHandler IncreaseHealthEvent;
     public event PM_HealthHandler DeductHealthEvent;
-    public delegate void PM_AttackHandler();
+    public delegate void PM_AttackHandler(bool dirChk);
     public event PM_AttackHandler AttackEvent;
 
     public void CallEventDeductHealth(int healthChange)
@@ -26,11 +26,11 @@ public class PM_Master : MonoBehaviour
         }//end if
     }//end CallEventIncreaseHealth()
 
-    public void CallEventAttack()
+    public void CallEventAttack(bool dirChk)
     {
         if (IncreaseHealthEvent != null)
         {
-            AttackEvent();
+            AttackEvent(dirChk);
         }//end if
     }//end CallEventIncreaseHealth()
 }//end class PM_Master
