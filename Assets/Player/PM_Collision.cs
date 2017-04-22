@@ -8,7 +8,7 @@ public class PM_Collision : MonoBehaviour
 
     private void Start()
     {
-        Physics2D.IgnoreLayerCollision(1, 2);
+        Physics2D.IgnoreLayerCollision(8, 9, true);
     }//end Start()
 
     void OnCollisionExit2D(Collision2D collisionOther)

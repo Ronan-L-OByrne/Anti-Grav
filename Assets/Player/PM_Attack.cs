@@ -49,7 +49,7 @@ public class PM_Attack : MonoBehaviour
         attackSpeed = 0;
         playerFist = GetComponent<Rigidbody2D>();
         player = GameObject.Find("Player");
-        Physics2D.IgnoreLayerCollision(2, 1);
+        Physics2D.IgnoreLayerCollision(9, 8, true);
     }//end Start()
 
     private void Update()
@@ -73,7 +73,7 @@ public class PM_Attack : MonoBehaviour
         {
             float distCovered = (Time.time - startTime) * .5f;
             float fracJourney = distCovered / journeyLength;
-            transform.position = Vector2.Lerp(transform.position, new Vector2((player.transform.position.x - 1), player.transform.position.y), fracJourney);
+            transform.position = Vector2.Lerp(transform.position, new Vector2((player.transform.position.x ), player.transform.position.y), fracJourney);
             attackSpeed -= 1;
         }//end else if
         else if (playerFist.position.x != player.transform.position.x || playerFist.position.y != player.transform.position.y)
