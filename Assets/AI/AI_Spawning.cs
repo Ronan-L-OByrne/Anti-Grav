@@ -35,7 +35,7 @@ public class AI_Spawning : MonoBehaviour
 
     public void CallSpawnEnemy()
     {
-        SpawnEnemy(new Vector3(cameraChk.transform.position.x + 10, cameraChk.transform.position.y, initEnemy.transform.position.z));
+        SpawnEnemy(new Vector3(cameraChk.transform.position.x + 10, -4, initEnemy.transform.position.z));
     }//end CallSpawnEnemy()
 
     public void SpawnEnemy(Vector3 spawnPos)

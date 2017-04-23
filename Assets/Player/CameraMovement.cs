@@ -7,9 +7,9 @@ public class CameraMovement : MonoBehaviour
     //Variables
     private static GameObject player;
     private PM_Movement playerMov;
-    private Vector3 offset, temp;
+    private Vector3 offset;
+    private float maxOffset;
     private int zPos;
-    private float maxOffset, time;
 
 
 	// Use this for initialization
@@ -26,9 +26,7 @@ public class CameraMovement : MonoBehaviour
 
         player = GameObject.Find("Player");
         playerMov = player.GetComponent<PM_Movement>();
-        time = 0;
         maxOffset = 1;
-        temp = new Vector3(transform.position.x, transform.position.y, zPos);
     }//end Start()
 	
 	// Update is called once per frame
