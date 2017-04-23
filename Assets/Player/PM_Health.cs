@@ -48,7 +48,7 @@ public class PM_Health : MonoBehaviour
 
     public void IncreaseHealth(int healthChange)
     {
-        Debug.Log("Inc");
+        //Debug.Log("Inc");
         playerHealth += healthChange;
 
         if (playerHealth >= maxHealth)

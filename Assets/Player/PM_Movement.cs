@@ -23,7 +23,7 @@ public class PM_Movement : MonoBehaviour
     void Start ()
     {
         gameManagerMaster = GetComponent<GM_Master>();
-        playerManagerMaster = GetComponent<PM_Master>();
+        gameManagerMaster = GameObject.Find("GameManager").GetComponent<GM_Master>();
         moveSpeed = 0.2f;
         maxSpeed = moveSpeed*100;
         jumpHeight = new Vector2(0, 18.75f);
@@ -115,6 +115,11 @@ public class PM_Movement : MonoBehaviour
             }//end if
 
             transform.eulerAngles = new Vector3(0, 0, curAngle);
+
+            if (transform.position.y <= -6)
+            {
+                gameManagerMaster.CallEventGameOver();
+            }//end if()
         }//end if
     }//end Update()
 

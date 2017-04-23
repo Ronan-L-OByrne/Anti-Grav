@@ -37,7 +37,7 @@ public class PM_Attack : MonoBehaviour
     {
         if (collisionOther.gameObject.name.StartsWith("Enemy"))
         {
-            Debug.Log("Hit");
+            //Debug.Log("Hit");
             collisionOther.gameObject.GetComponent<AI_Master>().CallEventDeductHealth(1);
         }//end if
     }//end OnCollisionEnter2D()
@@ -53,21 +53,21 @@ public class PM_Attack : MonoBehaviour
             if (dirChk)
             {
                 attackDist = 2;
-                Debug.Log(attackDist);
+                //Debug.Log(attackDist);
             }//end if
             else if (!dirChk)
             {
                 attackDist = -2;
-                Debug.Log(attackDist);
+                //Debug.Log(attackDist);
             }//end if
             
             if (player.GetComponent<PM_Movement>().curAngle == 0)
             {
-                journeyLength = Vector2.Distance(transform.position, new Vector2(player.transform.position.x + 2, player.transform.position.y));
+                journeyLength = Vector2.Distance(transform.position, new Vector2(player.transform.position.x + attackDist, player.transform.position.y));
             }//end if
             else
             {
-                journeyLength = Vector2.Distance(transform.position, new Vector2(player.transform.position.x, player.transform.position.y + 2));
+                journeyLength = Vector2.Distance(transform.position, new Vector2(player.transform.position.x, player.transform.position.y + attackDist));
             }//end else
         }//end if
     }//end PlayerAttack()
