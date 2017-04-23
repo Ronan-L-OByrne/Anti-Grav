@@ -5,19 +5,30 @@ using UnityEngine;
 public class CameraMovement : MonoBehaviour
 {
     //Variables
-    public static GameObject player;
-    public PM_Movement playerMov;
-    public Vector3 offset, temp;
-    public float maxOffset, time;
+    private static GameObject player;
+    private PM_Movement playerMov;
+    private Vector3 offset, temp;
+    private int zPos;
+    private float maxOffset, time;
+
 
 	// Use this for initialization
 	void Start ()
     {
+        if (this.name == "SkyBox")
+        {
+            zPos = 0;
+        }//end if
+        else if (this.name == "Main Camera")
+        {
+            zPos = -10;
+        }//end else if
+
         player = GameObject.Find("Player");
         playerMov = player.GetComponent<PM_Movement>();
         time = 0;
         maxOffset = 1;
-        temp = new Vector3(transform.position.x, transform.position.y, -10);
+        temp = new Vector3(transform.position.x, transform.position.y, zPos);
     }//end Start()
 	
 	// Update is called once per frame
@@ -25,24 +36,25 @@ public class CameraMovement : MonoBehaviour
     {
         offset = transform.position - new Vector3(playerMov.playerBody.position.x, playerMov.playerBody.position.y, 0);
 
-        if (offset.x > maxOffset + .01f)
+        /*if (offset.x > maxOffset + .01f)
         {
-            transform.position = new Vector3(playerMov.playerBody.position.x + maxOffset, transform.position.y, -10);
+            transform.position = new Vector3(playerMov.playerBody.position.x + maxOffset, transform.position.y, zPos);
         }//end if
-        else if (offset.x < -maxOffset - .01f)
+        else*/
+        if (offset.x < -maxOffset - .01f)
         {
-            transform.position = new Vector3(playerMov.playerBody.position.x - maxOffset, transform.position.y, -10);
+            transform.position = new Vector3(playerMov.playerBody.position.x - maxOffset, transform.position.y, zPos);
         }//end else if
 
         if (playerMov.playerBody.position.y >= -1)
         {
             if (offset.y > maxOffset + .01f)
             {
-                transform.position = new Vector3(transform.position.x, playerMov.playerBody.position.y + maxOffset, -10);
+                transform.position = new Vector3(transform.position.x, playerMov.playerBody.position.y + maxOffset, zPos);
             }//end if
             else if (offset.y < -maxOffset - .01f)
             {
-                transform.position = new Vector3(transform.position.x, playerMov.playerBody.position.y - maxOffset, -10);
+                transform.position = new Vector3(transform.position.x, playerMov.playerBody.position.y - maxOffset, zPos);
             }//end else if
         }//end if
     }//end Update()

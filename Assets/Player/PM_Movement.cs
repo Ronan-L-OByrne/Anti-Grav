@@ -22,8 +22,8 @@ public class PM_Movement : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
-        gameManagerMaster = GetComponent<GM_Master>();
         gameManagerMaster = GameObject.Find("GameManager").GetComponent<GM_Master>();
+        playerManagerMaster = GetComponent<PM_Master>();
         moveSpeed = 0.2f;
         maxSpeed = moveSpeed*100;
         jumpHeight = new Vector2(0, 18.75f);
