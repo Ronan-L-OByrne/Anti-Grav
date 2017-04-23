@@ -27,7 +27,6 @@ public class AI_Spawning : MonoBehaviour
 
     private void Start()
     {
-        AIManagerMaster = this.GetComponent<AI_Master>();
         initEnemy = GameObject.Find("Enemy_EvilPlayer");
         cameraChk = GameObject.Find("Main Camera");
         InvokeRepeating("CallSpawnEnemy", 0.0f, 5.0f);
