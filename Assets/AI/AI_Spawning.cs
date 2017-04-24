@@ -5,8 +5,10 @@ using UnityEngine;
 public class AI_Spawning : MonoBehaviour
 {
     private AI_Master AIManagerMaster;
-    private GameObject initEnemy;
+    private GameObject initEnemy_EP;
+    private GameObject initEnemy_B;
     private GameObject cameraChk;
+    private Random rand;
 
     private void OnEnable()
     {
@@ -27,19 +29,27 @@ public class AI_Spawning : MonoBehaviour
 
     private void Start()
     {
-        initEnemy = GameObject.Find("Enemy_EvilPlayer");
+        rand = new Random();
+        initEnemy_EP = GameObject.Find("Enemy_EvilPlayer");
+        initEnemy_B = GameObject.Find("Enemy_Bird");
         cameraChk = GameObject.Find("Main Camera");
-        InvokeRepeating("CallSpawnEnemy", 0.0f, 5.0f);
+        InvokeRepeating("CallSpawnEnemy_EP", 0.0f, 5.0f);
+        InvokeRepeating("CallSpawnEnemy_B", 2.5f, 2.0f);
     }//end Start()
 
-    public void CallSpawnEnemy()
+    public void CallSpawnEnemy_EP()
     {
-        SpawnEnemy(new Vector3(cameraChk.transform.position.x + 10, -4, initEnemy.transform.position.z));
+        SpawnEnemy(initEnemy_EP, new Vector3(cameraChk.transform.position.x + 10, -4, initEnemy_EP.transform.position.z));
     }//end CallSpawnEnemy()
 
-    public void SpawnEnemy(Vector3 spawnPos)
+    public void CallSpawnEnemy_B()
     {
-        GameObject newEnemy = Object.Instantiate(initEnemy, spawnPos, Quaternion.Euler(0, 0, 0));
+        SpawnEnemy(initEnemy_B, new Vector3(cameraChk.transform.position.x + 10, Random.Range(-4, 4), initEnemy_B.transform.position.z));
+    }//end CallSpawnEnemy()
+
+    public void SpawnEnemy(GameObject curEnemy, Vector3 spawnPos)
+    {
+        GameObject newEnemy = Object.Instantiate(curEnemy, spawnPos, Quaternion.Euler(0, 0, 0));
         newEnemy.transform.parent = gameObject.transform;
         this.gameObject.SetActive(true);
     }//end SpawnEnemy()
