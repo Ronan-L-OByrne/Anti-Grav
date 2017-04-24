@@ -17,7 +17,7 @@ public class OS_SpawnPlatforms : MonoBehaviour
 
     private void Update()
     {
-        if (cameraChk.transform.position.x % 20 < 5 && cameraChk.transform.position.x % 20 > -5)
+        if (cameraChk.transform.position.x % 20 < 5 && cameraChk.transform.position.x % 20 > -5 && cameraChk.transform.position.x > 10)
         {
             if (spawnChk)
             {
@@ -33,7 +33,7 @@ public class OS_SpawnPlatforms : MonoBehaviour
 
     private void CallSpawnPlatform()
     {
-        SpawnPlatform(new Vector3(cameraChk.transform.position.x + 10, Random.Range(-4, 4), platformTemplate.transform.position.z), new Vector3(0.5f,2,1));
+        SpawnPlatform(new Vector3(cameraChk.transform.position.x + 10, Random.Range(-3.5f, 3.5f), platformTemplate.transform.position.z), new Vector3(0.5f, Random.Range(1, 3), 1));
     }//end CallSpawnHealth()
 
     private void SpawnPlatform(Vector3 spawnPos, Vector3 spawnScale)

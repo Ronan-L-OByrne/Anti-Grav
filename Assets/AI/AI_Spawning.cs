@@ -8,7 +8,6 @@ public class AI_Spawning : MonoBehaviour
     private GameObject initEnemy_EP;
     private GameObject initEnemy_B;
     private GameObject cameraChk;
-    private Random rand;
 
     private void OnEnable()
     {
@@ -29,7 +28,6 @@ public class AI_Spawning : MonoBehaviour
 
     private void Start()
     {
-        rand = new Random();
         initEnemy_EP = GameObject.Find("Enemy_EvilPlayer");
         initEnemy_B = GameObject.Find("Enemy_Bird");
         cameraChk = GameObject.Find("Main Camera");

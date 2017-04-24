@@ -42,13 +42,11 @@ public class PM_Movement : MonoBehaviour
     {
         if (!collision.gameObject.name.StartsWith("Enemy"))
         {
-            Debug.Log("HitOther");
             canJump = true;
             jumping = false;
         }//end if
         else
         {
-            Debug.Log("EnemyHit");
             canJump = false;
             jumping = true;
         }//end else
