@@ -8,7 +8,7 @@ public class PM_Health : MonoBehaviour
     private GM_Master gameManagerMaster;
     private PM_Master playerManagerMaster;
     public int playerHealth;
-    private int maxHealth;
+    public int maxHealth;
     public int invFrames;
 
     private void OnEnable()

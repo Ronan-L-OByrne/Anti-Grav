@@ -783,8 +783,8 @@ GameObject:
   m_Component:
   - component: {fileID: 483554962}
   - component: {fileID: 483554961}
-  - component: {fileID: 483554960}
   - component: {fileID: 483554959}
+  - component: {fileID: 483554960}
   m_Layer: 0
   m_Name: HealthUp
   m_TagString: Untagged

@@ -7,6 +7,7 @@ public class AI_Movement : MonoBehaviour
     //Variables
     public Rigidbody2D AIBody;
     private SpriteRenderer AISprite;
+    private GameObject cameraChk;
     //public static GameObject player;
     //public PM_Movement playerMov;
     public float AISpeed;
@@ -17,6 +18,7 @@ public class AI_Movement : MonoBehaviour
         //player = GameObject.Find("Player");
         //playerMov = player.GetComponent<PM_Movement>();
         AIBody.velocity = new Vector2(AIBody.velocity.x, AIBody.velocity.y - 0.2f);
+        cameraChk = GameObject.Find("Main Camera");
         AISprite = GetComponent<SpriteRenderer>();
         AISpeed = 3.0f;
 	}//end Start()
@@ -41,5 +43,10 @@ public class AI_Movement : MonoBehaviour
         {
             AISprite.flipX = false;
         }//end else if
+
+        if(this.transform.position.x <= cameraChk.transform.position.x-8.1 && this.gameObject.name.Contains("Clone"))
+        {
+            Destroy(this.gameObject);
+        }//end if
     }//end Update()
 }//end class AI_Movement

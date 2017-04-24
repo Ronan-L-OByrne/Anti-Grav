@@ -18,7 +18,7 @@ public class HealthSpawn : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(cameraChk.transform.position.x % 100 + " - " + cameraChk.transform.position.x % 100);
+        //Debug.Log(cameraChk.transform.position.x % 100 + " - " + cameraChk.transform.position.x % 100);
         if(cameraChk.transform.position.x % 100 < 5 && cameraChk.transform.position.x % 100 > -5)
         {
             if (spawnChk)
@@ -44,26 +44,4 @@ public class HealthSpawn : MonoBehaviour
         newHealthPk.transform.parent = gameObject.transform;
         this.gameObject.SetActive(true);
     }//end SpawnHealth()
-
-    /*
-    private void Start()
-    {
-        initEnemy = GameObject.Find("Enemy_EvilPlayer");
-        cameraChk = GameObject.Find("Main Camera");
-        InvokeRepeating("CallSpawnEnemy", 0.0f, 5.0f);
-    }//end Start()
-
-    public void CallSpawnEnemy()
-    {
-        SpawnEnemy(new Vector3(cameraChk.transform.position.x + 10, -4, initEnemy.transform.position.z));
-    }//end CallSpawnEnemy()
-
-    public void SpawnEnemy(Vector3 spawnPos)
-    {
-        GameObject newEnemy = Object.Instantiate(initEnemy, spawnPos, Quaternion.Euler(0, 0, 0));
-        newEnemy.transform.parent = gameObject.transform;
-        this.gameObject.SetActive(true);
-    }//end SpawnEnemy()
-      
-    */
 }//end class HealthSpawn

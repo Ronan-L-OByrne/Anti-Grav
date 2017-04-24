@@ -40,16 +40,26 @@ public class PM_Movement : MonoBehaviour
     //When the Player collides with an object
     private void OnCollisionStay2D(Collision2D collision)
     {
-        canJump = true;
-        jumping = false;
-    }//end OnTriggerEnter
+        if (!collision.gameObject.name.StartsWith("Enemy"))
+        {
+            Debug.Log("HitOther");
+            canJump = true;
+            jumping = false;
+        }//end if
+        else
+        {
+            Debug.Log("EnemyHit");
+            canJump = false;
+            jumping = true;
+        }//end else
+    }//end OnCollisionStay2D
 
     //When the Player stops colliding with an object
-    private void OnCollisionExit2D(Collision2D Platforms)
+    private void OnCollisionExit2D(Collision2D collision)
     {
         canJump = false;
         jumping = true;
-    }//end OnTriggerEnter
+    }//end OnCollisionExit2D
 
     // Update is called once per frame
     void Update()

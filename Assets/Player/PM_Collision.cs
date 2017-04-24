@@ -11,24 +11,34 @@ public class PM_Collision : MonoBehaviour
         Physics2D.IgnoreLayerCollision(8, 9, true);
     }//end Start()
 
-    void OnCollisionExit2D(Collision2D collisionOther)
-    {
-        myParent.canJump = false;
-        myParent.jumping = true;
-    }//end OnCollisionExit2D()
-
     private void OnCollisionEnter2D(Collision2D collisionOther)
     {
-        if (collisionOther.gameObject.name.StartsWith("Enemy") && !(collisionOther.contacts[0].point.y < myParent.playerBody.position.y - 0.4f))
+        if (collisionOther.gameObject.name.StartsWith("Enemy"))
         {
-            myParent.GetComponent<PM_Master>().CallEventDeductHealth(1);
+            if ((myParent.expectedAngle == 0 && !(collisionOther.contacts[0].point.y < myParent.playerBody.position.y - 0.4f)) || (myParent.expectedAngle == 90 && !(collisionOther.contacts[0].point.x > myParent.playerBody.position.x + 0.4f)))
+            {
+                myParent.GetComponent<PM_Master>().CallEventDeductHealth(1);
+            }//end if
+            //else if (myParent.expectedAngle == 90 && (collisionOther.contacts[0].point.y < myParent.playerBody.position.y + 0.4f))
+            {
+              //  myParent.GetComponent<PM_Master>().CallEventDeductHealth(1);
+            }//end if
         }//end if
     }//end OnCollisionEnter
 
     void OnCollisionStay2D(Collision2D collisionOther)
     {
-        myParent.canJump = true;
-        myParent.jumping = false;
+        if (collisionOther.gameObject.name.StartsWith("Enemy"))
+        {
+            myParent.canJump = false;
+            myParent.jumping = true;
+        }//end if
+        else
+        {
+            myParent.canJump = true;
+            myParent.jumping = false;
+        }//end else
+
         for (int i = 0; i < collisionOther.contacts.GetLength(0); i++)
         {
             if (collisionOther.gameObject.name.StartsWith("Invis"))
@@ -61,6 +71,11 @@ public class PM_Collision : MonoBehaviour
                     {
                         //Debug.Log("BOTTOM");
                         myParent.jumpHeight = new Vector2(0.0f, myParent.moveSpeed * 45);
+
+                        if (collisionOther.gameObject.name.StartsWith("Enemy"))
+                        {
+                            collisionOther.gameObject.GetComponent<AI_Master>().CallEventDeductHealth(1);
+                        }//end if
                     }//end else if
                 }//end if
                 else
@@ -85,6 +100,11 @@ public class PM_Collision : MonoBehaviour
                     {
                         //Debug.Log("BOTTOM");
                         myParent.jumpHeight = new Vector2(-myParent.moveSpeed * 45, 0.0f);
+
+                        if (collisionOther.gameObject.name.StartsWith("Enemy"))
+                        {
+                            collisionOther.gameObject.GetComponent<AI_Master>().CallEventDeductHealth(1);
+                        }//end if
                     }//end else if
                 }//end else
             }//end if
