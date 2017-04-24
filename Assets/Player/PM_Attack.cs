@@ -37,7 +37,6 @@ public class PM_Attack : MonoBehaviour
     {
         if (collisionOther.gameObject.name.StartsWith("Enemy"))
         {
-            //Debug.Log("Hit");
             collisionOther.gameObject.GetComponent<AI_Master>().CallEventDeductHealth(1);
         }//end if
     }//end OnCollisionEnter2D()
@@ -53,12 +52,10 @@ public class PM_Attack : MonoBehaviour
             if (dirChk)
             {
                 attackDist = 2;
-                //Debug.Log(attackDist);
             }//end if
             else if (!dirChk)
             {
                 attackDist = -2;
-                //Debug.Log(attackDist);
             }//end if
             
             if (player.GetComponent<PM_Movement>().curAngle == 0)
@@ -94,12 +91,10 @@ public class PM_Attack : MonoBehaviour
 
                 if (attackDist > 0)
                 {
-                    //Debug.Log((player.transform.position.x + (attackDist + (player.GetComponent<Rigidbody2D>().velocity.x / attackDist))));
                     transform.position = Vector2.Lerp(transform.position, new Vector2((player.transform.position.x + (attackDist + (player.GetComponent<Rigidbody2D>().velocity.x / attackDist))), player.transform.position.y), fracJourney);
                 }//end i
                 else if (attackDist < 0)
                 {
-                    //Debug.Log(attackDist - (player.GetComponent<Rigidbody2D>().velocity.x / attackDist));
                     transform.position = Vector2.Lerp(transform.position, new Vector2((player.transform.position.x + (attackDist - Mathf.Abs(Mathf.Abs(player.GetComponent<Rigidbody2D>().velocity.x) / Mathf.Abs(attackDist)))), player.transform.position.y), fracJourney);
                 }//end else
                 attackSpeed += 1;

@@ -19,10 +19,6 @@ public class PM_Collision : MonoBehaviour
             {
                 myParent.GetComponent<PM_Master>().CallEventDeductHealth(1);
             }//end if
-            //else if (myParent.expectedAngle == 90 && (collisionOther.contacts[0].point.y < myParent.playerBody.position.y + 0.4f))
-            {
-              //  myParent.GetComponent<PM_Master>().CallEventDeductHealth(1);
-            }//end if
         }//end if
     }//end OnCollisionEnter
 

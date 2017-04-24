@@ -33,27 +33,10 @@ public class CameraMovement : MonoBehaviour
 	void LateUpdate ()
     {
         offset = transform.position - new Vector3(playerMov.playerBody.position.x, playerMov.playerBody.position.y, 0);
-
-        /*if (offset.x > maxOffset + .01f)
-        {
-            transform.position = new Vector3(playerMov.playerBody.position.x + maxOffset, transform.position.y, zPos);
-        }//end if
-        else*/
+        
         if (offset.x < -maxOffset - .01f)
         {
             transform.position = new Vector3(playerMov.playerBody.position.x - maxOffset, transform.position.y, zPos);
         }//end else if
-
-        /*if (playerMov.playerBody.position.y >= -1)
-        {
-            if (offset.y > maxOffset + .01f)
-            {
-                transform.position = new Vector3(transform.position.x, playerMov.playerBody.position.y + maxOffset, zPos);
-            }//end if
-            else if (offset.y < -maxOffset - .01f)
-            {
-                transform.position = new Vector3(transform.position.x, playerMov.playerBody.position.y - maxOffset, zPos);
-            }//end else if
-        }//end if*/
     }//end Update()
 }//end class CameraMovement

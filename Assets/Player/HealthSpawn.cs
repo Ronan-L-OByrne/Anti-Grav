@@ -13,12 +13,10 @@ public class HealthSpawn : MonoBehaviour
         healthTemplate = GameObject.Find("HealthUp");
         cameraChk = GameObject.Find("Main Camera");
         spawnChk = true;
-        //InvokeRepeating("CallSpawnHealth", 0.0f, 5.0f);
     }//end Start()
 
     private void Update()
     {
-        //Debug.Log(cameraChk.transform.position.x % 100 + " - " + cameraChk.transform.position.x % 100);
         if(cameraChk.transform.position.x % 100 < 5 && cameraChk.transform.position.x % 100 > -5)
         {
             if (spawnChk)

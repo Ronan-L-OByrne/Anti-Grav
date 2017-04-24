@@ -48,7 +48,6 @@ public class PM_Health : MonoBehaviour
 
     public void IncreaseHealth(int healthChange)
     {
-        //Debug.Log("Inc");
         playerHealth += healthChange;
 
         if (playerHealth >= maxHealth)
@@ -59,7 +58,6 @@ public class PM_Health : MonoBehaviour
 
     void OnGUI()
     {
-        // Make a background box
         GUI.Box(new Rect(10, 10, 70, 23), "Health: " + playerHealth);
     }//end OnGUI()
 

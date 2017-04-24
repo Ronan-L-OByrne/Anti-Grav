@@ -8,8 +8,7 @@ public class FloorMovement : MonoBehaviour
     private static GameObject player;
     private Rigidbody2D playerMov;
     public Vector3 offset;
-
-
+    
     // Use this for initialization
     void Start()
     {
