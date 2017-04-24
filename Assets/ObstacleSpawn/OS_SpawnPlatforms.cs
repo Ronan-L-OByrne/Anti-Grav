@@ -7,6 +7,7 @@ public class OS_SpawnPlatforms : MonoBehaviour
     public GameObject platformTemplate;
     public GameObject cameraChk;
     private bool spawnChk;
+    private float rand;
 
     private void Start()
     {
@@ -17,7 +18,8 @@ public class OS_SpawnPlatforms : MonoBehaviour
 
     private void Update()
     {
-        if (cameraChk.transform.position.x % 20 < 5 && cameraChk.transform.position.x % 20 > -5 && cameraChk.transform.position.x > 10)
+        rand = Random.Range(4, 8);
+        if (cameraChk.transform.position.x % 6 < 2 && cameraChk.transform.position.x % 6 > -2 && cameraChk.transform.position.x > 10)
         {
             if (spawnChk)
             {
@@ -33,7 +35,7 @@ public class OS_SpawnPlatforms : MonoBehaviour
 
     private void CallSpawnPlatform()
     {
-        SpawnPlatform(new Vector3(cameraChk.transform.position.x + 10, Random.Range(-3.5f, 3.5f), platformTemplate.transform.position.z), new Vector3(0.5f, Random.Range(1, 3), 1));
+        SpawnPlatform(new Vector3(cameraChk.transform.position.x + 10, Random.Range(-4f, 4f), platformTemplate.transform.position.z), new Vector3(0.5f, Random.Range(1, 3), 1));
     }//end CallSpawnHealth()
 
     private void SpawnPlatform(Vector3 spawnPos, Vector3 spawnScale)

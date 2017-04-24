@@ -16,7 +16,7 @@ public class AI_Movement : MonoBehaviour
         AIBody.velocity = new Vector2(AIBody.velocity.x, AIBody.velocity.y - 0.2f);
         cameraChk = GameObject.Find("Main Camera");
         AISprite = GetComponent<SpriteRenderer>();
-        AISpeed = 3.0f;
+        AISpeed = -3.0f;
         Physics2D.IgnoreLayerCollision(11, 10, true);
     }//end Start()
 
