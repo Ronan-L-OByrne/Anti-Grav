@@ -130,7 +130,8 @@ public class PM_Attack : MonoBehaviour
             {
                 float distCovered = (Time.time - startTime) * .5f;
                 float fracJourney = distCovered / journeyLength;
-                transform.position = Vector2.Lerp(transform.position, new Vector2((player.transform.position.x), player.transform.position.y + (attackDist / 2) * (attackDist + (player.GetComponent<Rigidbody2D>().velocity.y / Mathf.Abs(attackDist)))), fracJourney);
+
+                transform.position = Vector2.Lerp(transform.position, new Vector2((player.transform.position.x), (player.transform.position.y + (attackDist - Mathf.Abs(Mathf.Abs(player.GetComponent<Rigidbody2D>().velocity.y) / Mathf.Abs(attackDist))))), fracJourney);
                 attackSpeed += 1;
 
                 if (attackSpeed >= 25)

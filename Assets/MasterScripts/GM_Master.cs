@@ -12,6 +12,7 @@ public class GM_Master : MonoBehaviour
     public event GM_EventHandler GameOverEvent;
 
     public bool GameOver = false;
+    public bool InventoryUIOn;
     public bool MenuOn;
 
     public void CallEventMenuToggle()

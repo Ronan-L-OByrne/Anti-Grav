@@ -1146,6 +1146,7 @@ GameObject:
   - component: {fileID: 878274586}
   - component: {fileID: 878274585}
   - component: {fileID: 878274584}
+  - component: {fileID: 878274587}
   m_Layer: 0
   m_Name: InitPlatform
   m_TagString: Untagged
@@ -1235,6 +1236,17 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &878274587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 878274582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed0effffce08c9649a3e0ca003e5a87e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &923192436
 GameObject:
   m_ObjectHideFlags: 0
@@ -1610,7 +1622,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1064415295}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -8, z: 0}
+  m_LocalPosition: {x: 0, y: -7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 940482909}
@@ -1658,7 +1670,7 @@ BoxCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1064415295}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -1677,9 +1689,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: -0.15602256, y: -0.016716003}
+  m_Offset: {x: -0.031037882, y: -0.016716003}
   serializedVersion: 2
-  m_Size: {x: 0.603835, y: 0.48566055}
+  m_Size: {x: 0.85380435, y: 0.48566055}
 --- !u!50 &1064415302
 Rigidbody2D:
   serializedVersion: 4
@@ -1746,6 +1758,7 @@ GameObject:
   - component: {fileID: 1089666398}
   - component: {fileID: 1089666397}
   - component: {fileID: 1089666396}
+  - component: {fileID: 1089666399}
   m_Layer: 0
   m_Name: WallRight
   m_TagString: Untagged
@@ -1835,6 +1848,17 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &1089666399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1089666394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed0effffce08c9649a3e0ca003e5a87e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1193922938
 GameObject:
   m_ObjectHideFlags: 0
@@ -1925,6 +1949,7 @@ GameObject:
   - component: {fileID: 1195185064}
   - component: {fileID: 1195185063}
   - component: {fileID: 1195185062}
+  - component: {fileID: 1195185065}
   m_Layer: 0
   m_Name: WallLeft
   m_TagString: Untagged
@@ -2014,6 +2039,17 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &1195185065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1195185060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed0effffce08c9649a3e0ca003e5a87e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1272704916
 GameObject:
   m_ObjectHideFlags: 0
@@ -2174,6 +2210,7 @@ GameObject:
   - component: {fileID: 1301647963}
   - component: {fileID: 1301647962}
   - component: {fileID: 1301647961}
+  - component: {fileID: 1301647964}
   m_Layer: 0
   m_Name: Roof
   m_TagString: Untagged
@@ -2263,6 +2300,17 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &1301647964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1301647959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed0effffce08c9649a3e0ca003e5a87e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1378288915
 GameObject:
   m_ObjectHideFlags: 0
