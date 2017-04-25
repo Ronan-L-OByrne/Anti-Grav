@@ -43,10 +43,7 @@ public class GM_ToggleMenu : MonoBehaviour
             menu.SetActive(!menu.activeSelf);
             gameManagerMaster.MenuOn = !gameManagerMaster.MenuOn;
             gameManagerMaster.CallEventMenuToggle();
+            //Debug.Log("MenuToggled" + gameManagerMaster.MenuOn);
         }//end if
-        else
-        {
-            Debug.LogWarning("Assign UI Game Object to ToggleMenu()");
-        }//end else
     }//end ToggleMenu()
 }//end class GM_ToggleMenu

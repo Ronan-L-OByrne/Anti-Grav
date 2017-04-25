@@ -7,7 +7,6 @@ public class GM_GameOver : MonoBehaviour
 {
     private GM_Master gameManagerMaster;
     public GameObject panelGameOver;
-    //public PM_ScoreInc scoreChk;
 
     public void OnEnable()
     {
@@ -26,19 +25,12 @@ public class GM_GameOver : MonoBehaviour
         gameManagerMaster = GetComponent<GM_Master>();
     }//end SetInitReferences()
 
-    private void Start()
-    {
-        //scoreChk = GameObject.Find("Player").GetComponent<PM_ScoreInc>();
-        //panelGameOver = GameObject.Find("GameOverPanel");
-    }//end Start()
-
     public void DisplayGameOver()
     {
         if (panelGameOver != null)
         {
+            //Debug.Log("GameOver");
             panelGameOver.SetActive(true);
         }//end if()
-        
-        Text myText = panelGameOver.AddComponent<Text>();
     }//end DisplayGameOver()
 }//end class GM_GameOver

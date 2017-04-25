@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PM_Health : MonoBehaviour
 {
-    private GM_Master gameManagerMaster;
+    public GM_Master gameManagerMaster;
     private PM_Master playerManagerMaster;
     public int playerHealth;
     public int maxHealth;
@@ -27,7 +27,8 @@ public class PM_Health : MonoBehaviour
 
     private void SetInitReferences()
     {
-        gameManagerMaster = GameObject.Find("GameManager").GetComponent<GM_Master>();
+        //gameManagerMaster = GameObject.Find("GameManager").GetComponent<GM_Master>();
+        //gameManagerMaster = GetComponent<GM_Master>();
         playerManagerMaster = GameObject.Find("Player").GetComponent<PM_Master>();
     }//end setInitReferences()
 

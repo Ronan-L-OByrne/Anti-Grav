@@ -7,7 +7,6 @@ public class OS_SpawnPlatforms : MonoBehaviour
     public GameObject platformTemplate;
     public GameObject cameraChk;
     private bool spawnChk;
-    private float rand;
 
     private void Start()
     {
@@ -18,7 +17,6 @@ public class OS_SpawnPlatforms : MonoBehaviour
 
     private void Update()
     {
-        rand = Random.Range(4, 8);
         if (cameraChk.transform.position.x % 6 < 2 && cameraChk.transform.position.x % 6 > -2 && cameraChk.transform.position.x > 10)
         {
             if (spawnChk)

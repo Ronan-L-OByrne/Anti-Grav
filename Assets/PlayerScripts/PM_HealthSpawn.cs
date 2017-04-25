@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthSpawn : MonoBehaviour
+public class PM_HealthSpawn : MonoBehaviour
 {
     public GameObject healthTemplate;
     public GameObject cameraChk;
@@ -17,7 +17,7 @@ public class HealthSpawn : MonoBehaviour
 
     private void Update()
     {
-        if(cameraChk.transform.position.x % 100 < 5 && cameraChk.transform.position.x % 100 > -5 && cameraChk.transform.position.x % 100 > 5)
+        if(cameraChk.transform.position.x % 100 < 5 && cameraChk.transform.position.x % 100 > -5 && cameraChk.transform.position.x > 5)
         {
             if (spawnChk)
             {
@@ -33,7 +33,7 @@ public class HealthSpawn : MonoBehaviour
 
     private void CallSpawnHealth()
     {
-        SpawnHealth(new Vector3(cameraChk.transform.position.x + 10, -3.5f, healthTemplate.transform.position.z));
+        SpawnHealth(new Vector3(cameraChk.transform.position.x + 10, -Random.Range(-3.5f, 3.5f), healthTemplate.transform.position.z));
     }//end CallSpawnHealth()
 
     private void SpawnHealth(Vector3 spawnPos)

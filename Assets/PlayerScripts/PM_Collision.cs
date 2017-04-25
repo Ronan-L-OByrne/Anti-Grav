@@ -18,7 +18,7 @@ public class PM_Collision : MonoBehaviour
     {
         if (collisionOther.gameObject.name.StartsWith("Enemy"))
         {
-            if ((myParent.expectedAngle == 0 && !(collisionOther.contacts[0].point.y < myParent.playerBody.position.y - 0.4f)) || (myParent.expectedAngle == 90 && !(collisionOther.contacts[0].point.x > myParent.playerBody.position.x + 0.4f)))
+            if ((myParent.expectedAngle == 0 && !(collisionOther.contacts[0].point.y < myParent.playerBody.position.y - 0.425f)) || (myParent.expectedAngle == 90 && !(collisionOther.contacts[0].point.x > myParent.playerBody.position.x + 0.425f)))
             {
                 player.GetComponent<PM_Master>().CallEventDeductHealth(1);
             }//end if
@@ -105,7 +105,7 @@ public class PM_Collision : MonoBehaviour
                     }//end else if
                     else if (collisionOther.contacts[i].point.x > myParent.playerBody.position.x + 0.4f)
                     {
-                        //Debug.Log("BOTTOM");
+                        Debug.Log("BOTTOM");
                         myParent.jumpHeight = new Vector2(-myParent.moveSpeed * 45, 0.0f);
 
                         if (collisionOther.gameObject.name.StartsWith("Enemy"))

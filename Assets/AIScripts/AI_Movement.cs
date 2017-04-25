@@ -13,6 +13,7 @@ public class AI_Movement : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
+        AIBody = this.GetComponent<Rigidbody2D>();
         AIBody.velocity = new Vector2(AIBody.velocity.x, AIBody.velocity.y - 0.2f);
         cameraChk = GameObject.Find("Main Camera");
         AISprite = GetComponent<SpriteRenderer>();

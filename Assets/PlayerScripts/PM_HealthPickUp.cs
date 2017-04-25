@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthPickUp : MonoBehaviour
+public class PM_HealthPickUp : MonoBehaviour
 {
     public GameObject player;
     private GameObject cameraChk;
