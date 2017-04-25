@@ -18,8 +18,6 @@ public class PM_Collision : MonoBehaviour
         {
             if ((myParent.expectedAngle == 0 && collisionOther.contacts[0].point.y > myParent.playerBody.position.y - 0.3f) || (myParent.expectedAngle == 90 && collisionOther.contacts[0].point.x < myParent.playerBody.position.x + 0.3f))
             {
-                Debug.Log(collisionOther.contacts[0].point.y + " > " + (myParent.playerBody.position.y - 0.435f));
-                Debug.Log(collisionOther.contacts[0].point.x + " < " + (myParent.playerBody.position.x + 0.435f));
                 player.GetComponent<PM_Master>().CallEventDeductHealth(1);
             }//end if
         }//end if
