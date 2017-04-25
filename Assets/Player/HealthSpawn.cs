@@ -17,7 +17,7 @@ public class HealthSpawn : MonoBehaviour
 
     private void Update()
     {
-        if(cameraChk.transform.position.x % 100 < 5 && cameraChk.transform.position.x % 100 > -5)
+        if(cameraChk.transform.position.x % 100 < 5 && cameraChk.transform.position.x % 100 > -5 && cameraChk.transform.position.x % 100 > 5)
         {
             if (spawnChk)
             {

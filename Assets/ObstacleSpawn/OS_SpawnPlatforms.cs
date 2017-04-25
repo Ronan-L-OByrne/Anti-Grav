@@ -35,7 +35,8 @@ public class OS_SpawnPlatforms : MonoBehaviour
 
     private void CallSpawnPlatform()
     {
-        SpawnPlatform(new Vector3(cameraChk.transform.position.x + 10, Random.Range(-4f, 4f), platformTemplate.transform.position.z), new Vector3(0.5f, Random.Range(1, 3), 1));
+        SpawnPlatform(new Vector3(cameraChk.transform.position.x + 10, Random.Range(-4.5f, 4.5f), platformTemplate.transform.position.z), new Vector3(0.5f, Random.Range(2, 4), 1));
+        SpawnPlatform(new Vector3(cameraChk.transform.position.x + 10, Random.Range(-4.5f, 4.5f), platformTemplate.transform.position.z), new Vector3(0.5f, Random.Range(1, 3), 1));
     }//end CallSpawnHealth()
 
     private void SpawnPlatform(Vector3 spawnPos, Vector3 spawnScale)

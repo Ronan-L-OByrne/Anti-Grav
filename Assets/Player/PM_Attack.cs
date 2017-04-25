@@ -37,7 +37,16 @@ public class PM_Attack : MonoBehaviour
     {
         if (collisionOther.gameObject.name.StartsWith("Enemy"))
         {
-            collisionOther.gameObject.GetComponent<AI_Master>().CallEventDeductHealth(1);
+            if (collisionOther.gameObject.name.Contains("Bird"))
+            {
+                collisionOther.gameObject.GetComponent<AI_Master>().CallEventDeductHealth(1);
+                player.GetComponent<PM_Master>().CallEventIncreaseScore(100);
+            }//end if
+            else if(collisionOther.gameObject.name.Contains("EvilPlayer"))
+            {
+                collisionOther.gameObject.GetComponent<AI_Master>().CallEventDeductHealth(1);
+                player.GetComponent<PM_Master>().CallEventIncreaseScore(50);
+            }//end else if
         }//end if
     }//end OnCollisionEnter2D()
 

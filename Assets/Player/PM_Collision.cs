@@ -5,10 +5,13 @@ using UnityEngine;
 public class PM_Collision : MonoBehaviour
 {
     public PM_Movement myParent;
+    private GameObject player;
 
     private void Start()
     {
         Physics2D.IgnoreLayerCollision(8, 9, true);
+        player = GameObject.Find("Player");
+        myParent = player.GetComponent<PM_Movement>();
     }//end Start()
 
     private void OnCollisionEnter2D(Collision2D collisionOther)
@@ -17,9 +20,14 @@ public class PM_Collision : MonoBehaviour
         {
             if ((myParent.expectedAngle == 0 && !(collisionOther.contacts[0].point.y < myParent.playerBody.position.y - 0.4f)) || (myParent.expectedAngle == 90 && !(collisionOther.contacts[0].point.x > myParent.playerBody.position.x + 0.4f)))
             {
-                myParent.GetComponent<PM_Master>().CallEventDeductHealth(1);
+                player.GetComponent<PM_Master>().CallEventDeductHealth(1);
             }//end if
         }//end if
+        else
+        {
+            player.GetComponent<PM_ScoreInc>().scoreMultiplier = 1;
+            player.GetComponent<PM_ScoreInc>().combo = 0;
+        }//end else
     }//end OnCollisionEnter
 
     void OnCollisionStay2D(Collision2D collisionOther)
@@ -70,7 +78,13 @@ public class PM_Collision : MonoBehaviour
 
                         if (collisionOther.gameObject.name.StartsWith("Enemy"))
                         {
-                            collisionOther.gameObject.GetComponent<AI_Master>().CallEventDeductHealth(1);
+                            if (player.GetComponent<Rigidbody2D>().velocity.y < -1)
+                            {
+                                collisionOther.gameObject.GetComponent<AI_Master>().CallEventDeductHealth(1);
+                                player.GetComponent<PM_ScoreInc>().combo++;
+                            }//end if
+
+                            player.GetComponent<Rigidbody2D>().velocity = new Vector2(player.GetComponent<Rigidbody2D>().velocity.y, 7.5f);
                         }//end if
                     }//end else if
                 }//end if
@@ -99,7 +113,14 @@ public class PM_Collision : MonoBehaviour
 
                         if (collisionOther.gameObject.name.StartsWith("Enemy"))
                         {
-                            collisionOther.gameObject.GetComponent<AI_Master>().CallEventDeductHealth(1);
+                            Debug.Log("");
+                            if (player.GetComponent<Rigidbody2D>().velocity.x > 1)
+                            {
+                                collisionOther.gameObject.GetComponent<AI_Master>().CallEventDeductHealth(1);
+                                player.GetComponent<PM_ScoreInc>().combo++;
+                            }//end if
+
+                            player.GetComponent<Rigidbody2D>().velocity = new Vector2(-7.5f, player.GetComponent<Rigidbody2D>().velocity.y);
                         }//end if
                     }//end else if
                 }//end else

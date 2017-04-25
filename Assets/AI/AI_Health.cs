@@ -5,6 +5,7 @@ using UnityEngine;
 public class AI_Health : MonoBehaviour
 {
     private AI_Master AIManagerMaster;
+    private PM_Master playerManagerMaster;
     public int aiHealth;
     private int maxHealth;
 
@@ -23,6 +24,7 @@ public class AI_Health : MonoBehaviour
     private void SetInitReferences()
     {
         AIManagerMaster = this.GetComponent<AI_Master>();
+        playerManagerMaster = GameObject.Find("Player").GetComponent<PM_Master>();
     }//end setInitReferences()
 
     public void DeductHealth(int healthChange)
@@ -32,6 +34,7 @@ public class AI_Health : MonoBehaviour
         if (this.aiHealth <= 0)
         {
             this.aiHealth = 0;
+            playerManagerMaster.CallEventIncreaseScore(100);
             Destroy(this.gameObject);
         }//end if()
     }//end Deduct Healths

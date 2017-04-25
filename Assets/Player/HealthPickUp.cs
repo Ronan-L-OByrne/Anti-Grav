@@ -17,7 +17,7 @@ public class HealthPickUp : MonoBehaviour
     {
         if (collisionOther.gameObject.name == "Player" && player.GetComponent<PM_Health>().playerHealth < player.GetComponent<PM_Health>().maxHealth)
         {
-            player.GetComponent<PM_Master>().CallEventIncreaseHealth(100);
+            player.GetComponent<PM_Master>().CallEventIncreaseHealth(1);
             Destroy(this.gameObject);
         }//end if
     }//end OnCollisionEnter2D()

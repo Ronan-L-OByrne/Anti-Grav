@@ -9,6 +9,9 @@ public class PM_Master : MonoBehaviour
     public event PM_HealthHandler DeductHealthEvent;
     public delegate void PM_AttackHandler(bool dirChk);
     public event PM_AttackHandler AttackEvent;
+    public delegate void PM_ScoreHandler(int healthChange);
+    public event PM_ScoreHandler DeductScoreEvent;
+    public event PM_ScoreHandler IncreaseScoreEvent;
 
     public void CallEventDeductHealth(int healthChange)
     {
@@ -31,6 +34,22 @@ public class PM_Master : MonoBehaviour
         if (IncreaseHealthEvent != null)
         {
             AttackEvent(dirChk);
+        }//end if
+    }//end CallEventIncreaseHealth()
+
+    public void CallEventDeductScore(int scoreChange)
+    {
+        if (DeductScoreEvent != null)
+        {
+            DeductScoreEvent(scoreChange);
+        }//end if
+    }//end CallEventDecreaseHealth()
+
+    public void CallEventIncreaseScore(int scoreChange)
+    {
+        if (IncreaseScoreEvent != null)
+        {
+            IncreaseScoreEvent(scoreChange);
         }//end if
     }//end CallEventIncreaseHealth()
 }//end class PM_Master
