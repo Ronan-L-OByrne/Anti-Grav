@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 
 public class PM_Health : MonoBehaviour
 {
@@ -27,8 +24,6 @@ public class PM_Health : MonoBehaviour
 
     private void SetInitReferences()
     {
-        //gameManagerMaster = GameObject.Find("GameManager").GetComponent<GM_Master>();
-        //gameManagerMaster = GetComponent<GM_Master>();
         playerManagerMaster = GameObject.Find("Player").GetComponent<PM_Master>();
     }//end setInitReferences()
 

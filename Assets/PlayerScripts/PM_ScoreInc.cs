@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PM_ScoreInc : MonoBehaviour
 {
@@ -74,16 +72,6 @@ public class PM_ScoreInc : MonoBehaviour
 
     public void IncreaseScore(int scoreChange)
     {
-        if ((playerScore % 1000) > (playerScore + scoreChange % 1000))
-        {
-            GameObject.Find("Player").GetComponent<PM_Health>().IncreaseHealth(1);
-            //healthChk = true;
-        }//end if
-        else
-        {
-            //healthChk = false;
-        }//end else
-
         playerScore += (int)(scoreChange * scoreMultiplier);
     }//end IncreaseHealth
 }//end class PM_ScoreInc
