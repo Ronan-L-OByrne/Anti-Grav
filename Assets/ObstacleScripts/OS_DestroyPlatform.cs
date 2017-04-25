@@ -13,7 +13,7 @@ public class OS_DestroyPlatform : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-        if (this.transform.position.x < cameraChk.transform.position.x - 9 - (this.transform.localScale.x / 2))
+        if (this.transform.position.x < cameraChk.transform.position.x - 11 - (this.transform.localScale.x / 2))
         {
             if (this.gameObject.name.Contains("InitPlatform"))
             {

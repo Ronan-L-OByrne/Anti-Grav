@@ -40,7 +40,7 @@ public class AI_Movement : MonoBehaviour
             AISprite.flipX = false;
         }//end else if
 
-        if((this.transform.position.x <= cameraChk.transform.position.x-8.1f || this.transform.position.x > cameraChk.transform.position.x + 17.5f) && this.gameObject.name.Contains("Clone"))
+        if((this.transform.position.x <= cameraChk.transform.position.x - 11 || this.transform.position.x > cameraChk.transform.position.x + 17.5f) && this.gameObject.name.Contains("Clone"))
         {
             Destroy(this.gameObject);
         }//end if

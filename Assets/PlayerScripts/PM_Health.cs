@@ -54,7 +54,12 @@ public class PM_Health : MonoBehaviour
 
     void OnGUI()
     {
-        GUI.Box(new Rect(10, 10, 70, 23), "Health: " + playerHealth);
+        GUIStyle myStyle = new GUIStyle(GUI.skin.box)
+        {
+            fontSize = (int)((Screen.width + Screen.height) * (.008f))
+        };
+
+        GUI.Box(new Rect(10, 10, Screen.width * (.1f), Screen.height * (.035f)), "Health: " + playerHealth, myStyle);
     }//end OnGUI()
 
     private void Update()
