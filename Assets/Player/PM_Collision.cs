@@ -25,7 +25,6 @@ public class PM_Collision : MonoBehaviour
         }//end if
         else
         {
-            player.GetComponent<PM_ScoreInc>().scoreMultiplier = 1;
             player.GetComponent<PM_ScoreInc>().combo = 0;
         }//end else
     }//end OnCollisionEnter
@@ -39,6 +38,7 @@ public class PM_Collision : MonoBehaviour
         }//end if
         else
         {
+            player.GetComponent<PM_ScoreInc>().scoreMultiplier = 1;
             myParent.canJump = true;
             myParent.jumping = false;
         }//end else
@@ -78,13 +78,10 @@ public class PM_Collision : MonoBehaviour
 
                         if (collisionOther.gameObject.name.StartsWith("Enemy"))
                         {
-                            if (player.GetComponent<Rigidbody2D>().velocity.y < -1)
-                            {
-                                collisionOther.gameObject.GetComponent<AI_Master>().CallEventDeductHealth(1);
-                                player.GetComponent<PM_ScoreInc>().combo++;
-                            }//end if
+                            collisionOther.gameObject.GetComponent<AI_Master>().CallEventDeductHealth(1);
+                            player.GetComponent<PM_ScoreInc>().combo++;
 
-                            player.GetComponent<Rigidbody2D>().velocity = new Vector2(player.GetComponent<Rigidbody2D>().velocity.y, 7.5f);
+                            player.GetComponent<Rigidbody2D>().velocity = new Vector2(player.GetComponent<Rigidbody2D>().velocity.x, 7.5f);
                         }//end if
                     }//end else if
                 }//end if
@@ -113,8 +110,7 @@ public class PM_Collision : MonoBehaviour
 
                         if (collisionOther.gameObject.name.StartsWith("Enemy"))
                         {
-                            Debug.Log("");
-                            if (player.GetComponent<Rigidbody2D>().velocity.x > 1)
+                            if (player.GetComponent<Rigidbody2D>().velocity.x > 0.5)
                             {
                                 collisionOther.gameObject.GetComponent<AI_Master>().CallEventDeductHealth(1);
                                 player.GetComponent<PM_ScoreInc>().combo++;

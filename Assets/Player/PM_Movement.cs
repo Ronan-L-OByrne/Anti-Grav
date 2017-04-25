@@ -33,8 +33,8 @@ public class PM_Movement : MonoBehaviour
         playerBody.velocity = new Vector2(playerBody.velocity.x, playerBody.velocity.y-0.2f);
         mySprite = GetComponent<SpriteRenderer>();
         expectedAngle = 0;
-        curAngle = 0;
-        time = 0;
+        curAngle = 0.0f;
+        time = 0.0f;
     }//end Start()
 
     //When the Player collides with an object

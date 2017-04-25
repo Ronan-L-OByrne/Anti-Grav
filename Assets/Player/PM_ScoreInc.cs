@@ -40,7 +40,8 @@ public class PM_ScoreInc : MonoBehaviour
 
     void OnGUI()
     {
-        GUI.Box(new Rect(Screen.width - 80, 10, 70, 23), "Score: " + playerScore);
+        GUI.Box(new Rect(Screen.width - 100, 10, 90, 23), "Score: " + playerScore);
+        GUI.Box(new Rect(Screen.width - 100, 33, 90, 25), "Multiplier: " + scoreMultiplier.ToString("F1"));
     }//end OnGUI()
 
     private void Start()
@@ -53,12 +54,15 @@ public class PM_ScoreInc : MonoBehaviour
 
     private void Update()
     {
-        if (playerScore < 0)
+        if (Time.timeScale != 0)
         {
-            playerScore = 0;
-        }//end if
+            if (playerScore < 0)
+            {
+                playerScore = 0;
+            }//end if
 
-        scoreMultiplier += 0.005f;
+            scoreMultiplier += 0.005f;
+        }//end if
     }//end Update()
 
     public void DecrementScoreTime()
