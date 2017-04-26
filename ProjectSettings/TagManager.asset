@@ -38,6 +38,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: SkyBox
+    uniqueID: 882562629
+    locked: 0
+  - name: BackWall
+    uniqueID: 1495596315
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
