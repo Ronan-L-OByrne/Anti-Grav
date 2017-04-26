@@ -6,7 +6,6 @@ public class PM_ScoreInc : MonoBehaviour
     public int playerScore;
     public float scoreMultiplier;
     public int combo;
-//    private bool healthChk;
 
     private void OnEnable()
     {
@@ -53,7 +52,6 @@ public class PM_ScoreInc : MonoBehaviour
         playerScore = 0;
         scoreMultiplier = 1;
         combo = 0;
-        //healthChk = true;
         InvokeRepeating("DecrementScoreTime", 1.0f, 1.0f);
     }//end Start()
 
