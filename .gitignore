@@ -37,4 +37,8 @@ sysinfo.txt
 *.apk
 *.unitypackage
 
+<<<<<<< HEAD
 # End of https://www.gitignore.io/api/unity
+=======
+# End of https://www.gitignore.io/api/unity
+>>>>>>> ce4e5cad510e9db72d8537bd68ada8b0d18431a0
