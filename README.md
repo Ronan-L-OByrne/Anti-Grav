@@ -9,7 +9,7 @@ Oriented Programming module while studying Computer Science (Hons) at the Dublin
 Course Code: DT228/2, Student Number: C15332036.
 
 The assignment was intentionally vague in its description to leave us students to choose what we would like to 
-create. I chose to create a Unity game as it gave me a chance to learn both Unity, Game Design and basic C#
+create. I chose to create a Unity game as it gave me a chance to learn Unity, Game Design and basic C#
 
 Link to video of the game running:
  
