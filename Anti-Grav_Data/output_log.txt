@@ -17,31 +17,9 @@ Platform assembly: C:\Users\Ronan\Desktop\Anti-Grav\Anti-Grav_Data\Managed\Unity
 Loading C:\Users\Ronan\Desktop\Anti-Grav\Anti-Grav_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
 Platform assembly: C:\Users\Ronan\Desktop\Anti-Grav\Anti-Grav_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll (this message is harmless)
 Loading C:\Users\Ronan\Desktop\Anti-Grav\Anti-Grav_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll into Unity Child Domain
-- Completed reload, in  0.076 seconds
+- Completed reload, in  0.043 seconds
 Platform assembly: C:\Users\Ronan\Desktop\Anti-Grav\Anti-Grav_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\Ronan\Desktop\Anti-Grav\Anti-Grav_Data\Managed\System.dll (this message is harmless)
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
-<RI> Initialized touch support.
-UnloadTime: 2.903226 ms
-Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 7.140267 ms
-
-Unloading 7 unused Assets to reduce memory usage. Loaded Objects now: 435.
-Total: 0.323773 ms (FindLiveObjects: 0.054117 ms CreateObjectMapping: 0.020993 ms MarkObjects: 0.225334 ms  DeleteObjects: 0.011663 ms)
-
-Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 1.993023 ms
-
-Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 464.
-Total: 0.594827 ms (FindLiveObjects: 0.092839 ms CreateObjectMapping: 0.028458 ms MarkObjects: 0.460466 ms  DeleteObjects: 0.010730 ms)
-
-Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 5.060469 ms
-
-Unloading 11 unused Assets to reduce memory usage. Loaded Objects now: 330.
-Total: 0.851420 ms (FindLiveObjects: 0.043387 ms CreateObjectMapping: 0.027525 ms MarkObjects: 0.736187 ms  DeleteObjects: 0.043387 ms)
-
-Setting up 1 worker threads for Enlighten.
-  Thread -> id: f944 -> priority: 1 
