@@ -11,9 +11,9 @@ Course Code: DT228/2, Student Number: C15332036.
 The assignment was intentionally vague in its description to leave us students to choose what we would like to 
 create. I chose to create a Unity game as it gave me a chance to learn both Unity, Game Design and basic C#
 
-Link to video of the game running: (NOT YET CREATED)
+Link to video of the game running:
  
-[![Video](http://img.youtube.com/vi/rrI7ruHb1ws/0.jpg)](http://www.youtube.com/watch?v=rrI7ruHb1ws)
+[![Video](http://img.youtube.com/vi/afk8d3FPoPQ/0.jpg)](http://www.youtube.com/watch?v=afk8d3FPoPQ)
 
 Given more time i would like to add more to this project and flesh out both the mechanics and graphics 
 however due to the time constraints of the assignment I will have to leave it as it is. I may however come back 

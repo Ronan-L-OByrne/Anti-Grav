@@ -38,13 +38,13 @@ public class PM_ScoreInc : MonoBehaviour
 
     void OnGUI()
     {
-        GUIStyle myStyle = new GUIStyle(GUI.skin.box)
+        GUIStyle myStyle = new GUIStyle(GUI.skin.label)
         {
             fontSize = (int)((Screen.width + Screen.height) * (.008f))
         };
 
-        GUI.Box(new Rect(Screen.width - (Screen.width * (.1f)+10), 10, Screen.width * (.1f), Screen.height * (.035f)), "Score: " + playerScore, myStyle);
-        GUI.Box(new Rect(Screen.width - (Screen.width * (.1f)+10), 10 + Screen.height * (.035f), Screen.width * (.1f), Screen.height * (.035f)), "Multiplier: " + scoreMultiplier.ToString("F1"), myStyle);
+        GUI.Box(new Rect(Screen.width - (Screen.width * (.1f)+1), 1, Screen.width * (.1f), Screen.height * (.035f)), "Score: " + playerScore, myStyle);
+        GUI.Box(new Rect(Screen.width - (Screen.width * (.2f)+2), 1, Screen.width * (.1f), Screen.height * (.035f)), "Multiplier: " + scoreMultiplier.ToString("F1"), myStyle);
     }//end OnGUI()
 
     private void Start()
